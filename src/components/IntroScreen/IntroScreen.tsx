@@ -8,6 +8,7 @@ export default function IntroScreen({ onExplore }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const rafRef = useRef<number | null>(null)
   const parallax = useRef({ x: 0, y: 0 })
+  const hoverLayerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current!
@@ -23,18 +24,7 @@ export default function IntroScreen({ onExplore }: Props) {
     canvas.style.height = height + 'px'
     ctx.scale(DPR, DPR)
 
-    const squares: { x: number; y: number; size: number; vy: number; vx: number; alpha: number }[] = []
-    const squareCount = 10
-    for (let i = 0; i < squareCount; i++) {
-      squares.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: 80 + Math.random() * 80,
-        vy: (Math.random() * 0.6 + 0.1) * (Math.random() > 0.5 ? 1 : -1),
-        vx: (Math.random() * 0.3 + 0.05) * (Math.random() > 0.5 ? 1 : -1),
-        alpha: 0.12 + Math.random() * 0.08
-      })
-    }
+    // no drifting squares; only static grid + hover layer
 
     function drawGrid() {
       ctx.clearRect(0, 0, width, height)
@@ -60,28 +50,10 @@ export default function IntroScreen({ onExplore }: Props) {
       ctx.stroke()
     }
 
-    function drawSquares() {
-      for (const s of squares) {
-        s.x += s.vx
-        s.y += s.vy
-        if (s.x < -s.size) s.x = width + s.size
-        if (s.x > width + s.size) s.x = -s.size
-        if (s.y < -s.size) s.y = height + s.size
-        if (s.y > height + s.size) s.y = -s.size
-
-        const px = s.x + parallax.current.x * 20
-        const py = s.y + parallax.current.y * 20
-        const grd = ctx.createLinearGradient(px, py, px + s.size, py + s.size)
-        grd.addColorStop(0, `rgba(113, 97, 255, ${s.alpha})`)
-        grd.addColorStop(1, `rgba(173, 160, 255, ${s.alpha * 0.9})`)
-        ctx.fillStyle = grd
-        ctx.fillRect(px, py, s.size, s.size)
-      }
-    }
+    // nothing to draw besides the grid each frame
 
     function frame() {
       drawGrid()
-      drawSquares()
       rafRef.current = requestAnimationFrame(frame)
     }
     frame()
@@ -98,12 +70,45 @@ export default function IntroScreen({ onExplore }: Props) {
       ctx.scale(DPR2, DPR2)
     }
     window.addEventListener('resize', handleResize)
+    const grid = 24
+    let lastCellKey = ''
+    function spawnTile(cx: number, cy: number) {
+      const layer = hoverLayerRef.current
+      if (!layer) return
+      const tile = document.createElement('div')
+      tile.className = 'flip-tile'
+      tile.style.left = cx + 'px'
+      tile.style.top = cy + 'px'
+      tile.style.width = grid + 'px'
+      tile.style.height = grid + 'px'
+      layer.appendChild(tile)
+      // auto remove after animation
+      window.setTimeout(() => {
+        tile.style.pointerEvents = 'none'
+        tile.remove()
+      }, 900)
+      // keep children count modest
+      const max = 28
+      while (layer.children.length > max) {
+        layer.firstChild?.remove()
+      }
+    }
+
     function onMouse(e: MouseEvent) {
       const mx = e.clientX / width - 0.5
       const my = e.clientY / height - 0.5
       // ease towards cursor for subtle parallax
       parallax.current.x += (mx - parallax.current.x) * 0.07
       parallax.current.y += (my - parallax.current.y) * 0.07
+
+      // grid-aligned hover tile spawn
+      const cellX = Math.floor(e.clientX / grid) * grid
+      const cellY = Math.floor(e.clientY / grid) * grid
+      const key = cellX + 'x' + cellY
+      if (key !== lastCellKey) {
+        spawnTile(cellX, cellY)
+        lastCellKey = key
+      }
     }
     window.addEventListener('mousemove', onMouse)
 
@@ -123,6 +128,7 @@ export default function IntroScreen({ onExplore }: Props) {
   return (
     <div className={"intro-root" + (closing ? " closing" : "") }>
       <canvas ref={canvasRef} className="intro-canvas" />
+      <div ref={hoverLayerRef} className="hover-layer" />
       <div className="intro-overlay">
         <h1 className="intro-title">TIMELAPSE</h1>
         <p className="intro-tagline">CAPTURE. CONDENSE. RELIVE.</p>

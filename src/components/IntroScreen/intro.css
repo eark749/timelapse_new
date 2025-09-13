@@ -24,6 +24,14 @@
   height: 100%;
 }
 
+.hover-layer{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  perspective: 500px;
+  z-index: 1;
+}
+
 .intro-overlay{
   position: relative;
   z-index: 2;
@@ -83,5 +91,21 @@
 @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
 @keyframes rise { from { opacity: 0; transform: translateY(-10vh)} to { opacity: 1; transform: translateY(-6vh)} }
+
+.flip-tile{
+  position: absolute;
+  background: linear-gradient(135deg, rgba(113,97,255,.25), rgba(173,160,255,.22));
+  border: 1px solid rgba(0,0,0,.06);
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: flipIn .35s cubic-bezier(.2,.8,.2,1), tileFade .6s ease .35s forwards;
+  box-shadow: 0 6px 12px rgba(0,0,0,.07);
+}
+@keyframes flipIn {
+  0% { transform: rotateX(-90deg) scale(.92); opacity: 0; }
+  60% { transform: rotateX(12deg) scale(1.005); opacity: .92; }
+  100% { transform: rotateX(0deg) scale(1); opacity: .8; }
+}
+@keyframes tileFade { to { opacity: 0; transform: rotateX(0) scale(1); box-shadow: none; } }
 
 
