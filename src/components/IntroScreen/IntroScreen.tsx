@@ -5,10 +5,12 @@ type Props = { onExplore: () => void }
 
 export default function IntroScreen({ onExplore }: Props) {
   const [closing, setClosing] = useState(false)
+  const [loading] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const rafRef = useRef<number | null>(null)
   const parallax = useRef({ x: 0, y: 0 })
   const hoverLayerRef = useRef<HTMLDivElement | null>(null)
+  const loadRafRef = useRef<number | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current!
@@ -122,7 +124,7 @@ export default function IntroScreen({ onExplore }: Props) {
   function handleExplore() {
     if (closing) return
     setClosing(true)
-    window.setTimeout(() => onExplore(), 350)
+    onExplore()
   }
 
   return (
@@ -130,8 +132,8 @@ export default function IntroScreen({ onExplore }: Props) {
       <canvas ref={canvasRef} className="intro-canvas" />
       <div ref={hoverLayerRef} className="hover-layer" />
       <div className="intro-overlay">
-        <h1 className="intro-title">TIMELAPSE</h1>
-        <p className="intro-tagline">CAPTURE. CONDENSE. RELIVE.</p>
+        <h1 className="intro-title">VANSH SONI</h1>
+        <p className="intro-tagline">BUILDING FUTURE WITH AI</p>
         <button className="intro-explore" onClick={handleExplore}>EXPLORE</button>
       </div>
       <div className="intro-controls">
