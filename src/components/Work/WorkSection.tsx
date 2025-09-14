@@ -50,7 +50,7 @@ const projects: Project[] = [
 export default function WorkSection() {
   return (
     <section id="work" className="section work-root" aria-label="Work">
-      <h2>My Projects</h2>
+      <h2>Work</h2>
 
       <div className="work-grid">
         {projects.map((p, idx) => (
