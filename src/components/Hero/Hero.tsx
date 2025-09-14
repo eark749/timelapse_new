@@ -19,7 +19,6 @@ export default function Hero() {
           <a className="contact-btn" href="#contact">Contact Me</a>
         </div>
       </nav>
-      <div className="nav-blur" aria-hidden="true" />
 
       {/* Spacer to prevent content from sitting beneath the fixed nav */}
       <div className="nav-spacer" aria-hidden="true" />

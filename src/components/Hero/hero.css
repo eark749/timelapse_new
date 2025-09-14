@@ -66,27 +66,14 @@
   width: min(980px, 94%);
   padding: 8px 14px; /* slightly shorter height */
   border-radius: 28px; /* more rounded pill */
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(255,255,255,.85);
+  background: rgba(255,255,255,1);
+  border: 1px solid rgba(0,0,0,.08);
   outline: 1px solid rgba(0,0,0,.10);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  backdrop-filter: blur(16px) saturate(140%); /* stronger blur for glassy feel */
-  box-shadow: 0 1px 0 rgba(255,255,255,.85) inset, 0 -1px 0 rgba(0,0,0,.06) inset, 0 10px 28px rgba(0,0,0,.18);
+  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 -1px 0 rgba(0,0,0,.06) inset, 0 10px 28px rgba(0,0,0,.14);
   z-index: 1000;
 }
 
-/* Fixed blur sheet underneath the navbar to blur scrolled content */
-.nav-blur{
-  position: fixed;
-  top: 0; /* touch the top of the screen */
-  left: 0; right: 0;
-  height: 48px; /* bring bottom edge slightly up */
-  -webkit-backdrop-filter: blur(10px) saturate(140%);
-  backdrop-filter: blur(10px) saturate(140%);
-  background: linear-gradient(180deg, rgba(245,245,247,.7), rgba(245,245,247,.35));
-  z-index: 900; /* below nav (1000) but above content */
-  pointer-events: none;
-}
+/* removed nav-blur */
 
 .nav-spacer{ height: 76px; }
 .nav-left{ display: flex; align-items: center; }
@@ -112,13 +99,12 @@
   text-decoration: none; color: var(--ink);
   font-weight: 700; letter-spacing: .03em;
   border-radius: 999px; padding: 8px 14px; /* match reduced navbar height */
-  background: linear-gradient(135deg, rgba(245,245,247,.7), rgba(230,230,235,.4));
-  border: 1px solid rgba(255,255,255,.55);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
   box-shadow: 0 4px 14px rgba(0,0,0,.14);
-  backdrop-filter: blur(8px);
   transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
 }
-.contact-btn:hover{ transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,.12); background: linear-gradient(135deg, rgba(255,255,255,.7), rgba(255,255,255,.45)); }
+.contact-btn:hover{ transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,.12); background: #ffffff; }
 
 .hero-content{
   position: relative;
