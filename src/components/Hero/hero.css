@@ -19,6 +19,24 @@
   overflow: hidden;
 }
 
+/* Provide consistent section spacing for anchored sections */
+.section{
+  width: min(1100px, 94%);
+  margin: 72px auto 24px;
+}
+.section h2{
+  margin: 0 0 18px;
+  font-size: clamp(1.6rem, 3.8vw, 2.2rem);
+  letter-spacing: .03em;
+  color: var(--ink);
+}
+
+/* Account for sticky nav when scrolling to anchors */
+[id]{ scroll-margin-top: 96px; }
+/* Extra margin to account for fixed nav height */
+#work, #skills, #certifications, #experience { scroll-margin-top: 110px; }
+/* (Removed global blur sheet; blur now confined to the nav itself) */
+
 .hero-grid{
   position: absolute;
   inset: 0;
@@ -37,8 +55,10 @@
 }
 
 .hero-nav{
-  position: sticky;
-  top: 18px;
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -46,13 +66,29 @@
   width: min(980px, 94%);
   padding: 8px 14px; /* slightly shorter height */
   border-radius: 28px; /* more rounded pill */
-  background: linear-gradient(180deg, rgba(245,245,247,.55), rgba(230,230,235,.28));
-  border: 1px solid rgba(255,255,255,.5);
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.85);
   outline: 1px solid rgba(0,0,0,.10);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   backdrop-filter: blur(16px) saturate(140%); /* stronger blur for glassy feel */
-  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 -1px 0 rgba(0,0,0,.06) inset, 0 10px 28px rgba(0,0,0,.18);
-  z-index: 2;
+  box-shadow: 0 1px 0 rgba(255,255,255,.85) inset, 0 -1px 0 rgba(0,0,0,.06) inset, 0 10px 28px rgba(0,0,0,.18);
+  z-index: 1000;
 }
+
+/* Fixed blur sheet underneath the navbar to blur scrolled content */
+.nav-blur{
+  position: fixed;
+  top: 0; /* touch the top of the screen */
+  left: 0; right: 0;
+  height: 48px; /* bring bottom edge slightly up */
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(10px) saturate(140%);
+  background: linear-gradient(180deg, rgba(245,245,247,.7), rgba(245,245,247,.35));
+  z-index: 900; /* below nav (1000) but above content */
+  pointer-events: none;
+}
+
+.nav-spacer{ height: 76px; }
 .nav-left{ display: flex; align-items: center; }
 .avatar{
   width: 32px; height: 32px; border-radius: 50%;
@@ -68,6 +104,7 @@
   text-decoration: none; color: var(--ink); font-weight: 600; letter-spacing: .02em;
   padding: 6px 10px; border-radius: 12px; transition: background .2s ease, color .2s ease;
 }
+.nav-center a[href^="#"]{ scroll-behavior: smooth; }
 .nav-center a:hover{ background: rgba(113,97,255,.12); }
 
 .nav-right{ display: flex; justify-content: flex-end; }
@@ -86,7 +123,7 @@
 .hero-content{
   position: relative;
   z-index: 2;
-  margin-top: 18vh;
+  margin-top: 22vh;
   text-align: center;
 }
 .hero-content h1{
@@ -96,6 +133,19 @@
 }
 .hero-content p{
   margin: 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.hero-about{
+  position: relative;
+  z-index: 2;
+  width: min(980px, 92%);
+  margin: 16px auto 0;
+  text-align: center;
+}
+.hero-about p{
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(0,0,0,.7);
 }
 
 

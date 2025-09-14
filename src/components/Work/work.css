@@ -1,0 +1,58 @@
+:root{
+  --work-pink: #ff4d97;
+  --work-orange: #ff8a3d;
+  --work-purple: #6c5ce7;
+  --work-blue: #3d7eff;
+}
+
+.work-root{
+  padding-bottom: 24px;
+}
+
+.work-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.work-card{
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(380px, 560px) 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, var(--work-pink), var(--work-orange) 35%, var(--work-purple) 75%, var(--work-blue));
+  box-shadow: 0 18px 46px rgba(0,0,0,.22), 0 6px 18px rgba(0,0,0,.12);
+}
+
+.work-media{
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+.work-video{
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10; /* desktop product preview */
+  object-fit: cover;
+  background: rgba(0,0,0,.3);
+}
+
+.work-meta h3{ margin: 0 0 8px; font-size: 1.25rem; letter-spacing: .02em; }
+.work-meta p{ margin: 0; opacity: .95; }
+
+/* Themes per card for vibrant contrast */
+.work-card.theme-a{ background: linear-gradient(135deg, #ff5ea3, #ffad3b 35%, #7a5cff 75%, #3d7eff); }
+.work-card.theme-b{ background: linear-gradient(135deg, #6aef9b, #36d1dc 35%, #5b86e5 75%, #36d1dc); }
+.work-card.theme-c{ background: linear-gradient(135deg, #ff512f, #dd2476 35%, #7b4397 75%, #1d2b64); }
+.work-card.theme-d{ background: linear-gradient(135deg, #12c2e9, #c471ed 35%, #f64f59 75%, #f79d00); }
+.work-card.theme-e{ background: linear-gradient(135deg, #f7971e, #ffd200 35%, #ff5858 75%, #f857a6); }
+
+@media (max-width: 980px){
+  .work-card{ grid-template-columns: 1fr; }
+}
+
+

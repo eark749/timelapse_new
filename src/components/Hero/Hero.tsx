@@ -3,27 +3,41 @@ import './hero.css'
 
 export default function Hero() {
   return (
-    <section className="hero-root">
+    <section className="hero-root" id="top">
       <div className="hero-grid" aria-hidden="true" />
       <nav className="hero-nav" aria-label="Primary">
         <div className="nav-left">
-          <div className="avatar">VS</div>
+          <a href="#top" aria-label="Go to top" className="avatar">VS</a>
         </div>
         <ul className="nav-center">
           <li><a href="#work">Work</a></li>
-          <li><a href="#cert">Certification</a></li>
-          <li><a href="#skills">Skill</a></li>
-          <li><a href="#exp">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#experience">Experience</a></li>
         </ul>
         <div className="nav-right">
           <a className="contact-btn" href="#contact">Contact Me</a>
         </div>
       </nav>
+      <div className="nav-blur" aria-hidden="true" />
+
+      {/* Spacer to prevent content from sitting beneath the fixed nav */}
+      <div className="nav-spacer" aria-hidden="true" />
 
       <div className="hero-content">
         <h1>Vansh Soni</h1>
         <p>Applied AI Engineer</p>
       </div>
+
+      <section className="hero-about" aria-label="About">
+        <p>
+          AI Engineer specializing in machine learning and neural networks, with expertise in
+          building and fine-tuning LLM models. I combine strong data processing capabilities with
+          advanced AI techniques to develop intelligent solutions. My background in supervised
+          learning, feature extraction, and RAG architectures enables me to create impactful AI
+          systems that solve complex business challenges.
+        </p>
+      </section>
     </section>
   )
 }
