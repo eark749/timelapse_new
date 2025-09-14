@@ -51,7 +51,15 @@ export default function SkillsSection() {
     <section id="skills" className="section skills-root" aria-label="Skills">
       <h2>Skills</h2>
 
-      <div className="skills-grid">
+      <div className="skills-grid" onMouseMove={(e) => {
+        const target = (e.target as HTMLElement).closest('.skill-card') as HTMLElement | null
+        if (!target) return
+        const rect = target.getBoundingClientRect()
+        const mx = e.clientX - rect.left
+        const my = e.clientY - rect.top
+        target.style.setProperty('--mx', `${mx}px`)
+        target.style.setProperty('--my', `${my}px`)
+      }}>
         {groups.map((g, i) => (
           <article className="skill-card" key={i}>
             <div className="skill-header">
