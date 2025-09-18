@@ -133,7 +133,7 @@ export default function IntroScreen({ onExplore }: Props) {
       <div ref={hoverLayerRef} className="hover-layer" />
       <div className="intro-overlay">
         <h1 className="intro-title">VANSH SONI</h1>
-        <p className="intro-tagline">BUILDING FUTURE WITH AI</p>
+        <p className="intro-tagline">CURRENTLY BUILDING FUTURE WITH AI</p>
         <button className="intro-explore" onClick={handleExplore}>EXPLORE</button>
       </div>
       <div className="intro-controls">

@@ -1,0 +1,43 @@
+.exp-root{ padding-bottom: 24px; }
+
+.exp-timeline{
+  position: relative;
+  display: grid;
+  gap: 16px;
+}
+.exp-timeline::before{
+  content: "";
+  position: absolute; left: 20px; top: 0; bottom: 0;
+  width: 2px; border-radius: 2px;
+  background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.04));
+}
+
+.exp-card{
+  position: relative;
+  margin-left: 44px;
+  padding: 14px 16px 14px 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(0,0,0,.06);
+  outline: 1px solid rgba(255,255,255,.7);
+  box-shadow: 0 10px 28px rgba(0,0,0,.12);
+  transform: translateY(18px) scale(.98);
+  opacity: 0;
+  filter: blur(8px);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s ease, filter .5s ease;
+}
+.exp-card.show{ transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+
+.exp-card .dot{
+  position: absolute; left: -28px; top: 16px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: linear-gradient(135deg, #7161ff, #ada0ff);
+  box-shadow: 0 6px 14px rgba(113,97,255,.4);
+}
+
+.exp-header h3{ margin: 0 0 4px; font-size: 1.05rem; letter-spacing: .02em; color: #1c1c1e; }
+.exp-header .meta{ color: rgba(0,0,0,.55); font-size: .95rem; }
+.exp-summary{ margin: 8px 0 0; color: rgba(0,0,0,.75); line-height: 1.5; }
+
+
+
