@@ -2,28 +2,28 @@ import React from 'react'
 import './skills.css'
 
 type SkillSize = 'sm' | 'lg' | 'wide' | 'tall'
-type Skill = { name: string; size: SkillSize }
+type Skill = { name: string; size: SkillSize; level: number }
 const skills: Skill[] = [
-  { name: 'Python', size: 'lg' },
-  { name: 'AWS', size: 'lg' },
-  { name: 'TensorFlow', size: 'lg' },
-  { name: 'Docker', size: 'lg' },
-  { name: 'PostgreSQL', size: 'tall' },
-  { name: 'Hugging Face', size: 'wide' },
-  { name: 'Keras', size: 'sm' },
-  { name: 'Scikit-learn', size: 'sm' },
-  { name: 'LangChain', size: 'sm' },
-  { name: 'LlamaIndex', size: 'sm' },
-  { name: 'LangGraph', size: 'sm' },
-  { name: 'Postman', size: 'sm' },
-  { name: 'Git', size: 'sm' },
-  { name: 'Portkey', size: 'sm' },
-  { name: 'Apollo', size: 'sm' },
-  { name: 'Weka', size: 'sm' },
-  { name: 'PyCharm', size: 'sm' },
-  { name: 'n8n', size: 'sm' },
-  { name: 'Wireshark', size: 'tall' },
-  { name: 'Cisco Packet Tracer', size: 'wide' },
+  { name: 'Python', size: 'lg', level: 92 },
+  { name: 'AWS', size: 'lg', level: 75 },
+  { name: 'TensorFlow', size: 'lg', level: 78 },
+  { name: 'Docker', size: 'lg', level: 72 },
+  { name: 'PostgreSQL', size: 'tall', level: 68 },
+  { name: 'Hugging Face', size: 'wide', level: 82 },
+  { name: 'Keras', size: 'sm', level: 76 },
+  { name: 'Scikit-learn', size: 'sm', level: 80 },
+  { name: 'LangChain', size: 'sm', level: 84 },
+  { name: 'LlamaIndex', size: 'sm', level: 74 },
+  { name: 'LangGraph', size: 'sm', level: 62 },
+  { name: 'Postman', size: 'sm', level: 70 },
+  { name: 'Git', size: 'sm', level: 88 },
+  { name: 'Portkey', size: 'sm', level: 60 },
+  { name: 'Apollo', size: 'sm', level: 58 },
+  { name: 'Weka', size: 'sm', level: 55 },
+  { name: 'PyCharm', size: 'sm', level: 86 },
+  { name: 'n8n', size: 'sm', level: 64 },
+  { name: 'Wireshark', size: 'tall', level: 56 },
+  { name: 'Cisco Packet Tracer', size: 'wide', level: 62 },
 ]
 
 function SkillIcon({ name }: { name: string }) {
@@ -97,10 +97,20 @@ export default function SkillsSection() {
 
       <div className="skills-board">
         {skills.map((s) => (
-          <div key={s.name} className={`skill is-${s.size}`} aria-label={s.name} title={s.name}>
+          <div
+            key={s.name}
+            className={`skill is-${s.size}`}
+            aria-label={s.name}
+            title={s.name}
+            style={{ ['--level' as any]: `${s.level}%` }}
+          >
             <div className="content">
               <SkillIcon name={s.name} />
               <span className="label">{s.name}</span>
+            </div>
+            <div className="progress" aria-hidden="true">
+              <div className="bar" />
+              <span className="pct">{s.level}%</span>
             </div>
           </div>
         ))}

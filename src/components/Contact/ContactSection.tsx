@@ -30,7 +30,6 @@ export default function ContactSection() {
     <footer id="contact" className="section contact-root contact2" aria-label="Contact">
       <div className="contact2-shell">
         <div className="contact2-left">
-          <div className="contact2-eyebrow">CONTACT</div>
           <h2 className="contact2-title">
             <span>GET IN</span>
             <span>TOUCH</span>
