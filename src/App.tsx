@@ -7,6 +7,7 @@ import CertificationsSection from './components/Certifications/CertificationsSec
 import ExperienceSection from './components/Experience/ExperienceSection'
 import ContactSection from './components/Contact/ContactSection'
 import CertificationsPage from './pages/CertificationsPage'
+ 
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true)

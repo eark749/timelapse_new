@@ -1,5 +1,7 @@
 import React from 'react'
 import './hero.css'
+import heroAvatar from '../../../Gemini_Generated_Image_t81kr0t81kr0t81k.png'
+ 
 
 export default function Hero() {
   return (
@@ -25,6 +27,9 @@ export default function Hero() {
 
       <div className="hero-content">
         <h1>Vansh Soni</h1>
+        <div className="hero-avatar" aria-hidden="false">
+          <img src={heroAvatar} alt="Vansh avatar" />
+        </div>
         <p>Applied AI Engineer</p>
       </div>
 
@@ -36,6 +41,9 @@ export default function Hero() {
           learning, feature extraction, and RAG architectures enables me to create impactful AI
           systems that solve complex business challenges.
         </p>
+        <div className="hero-cta">
+          <a className="download-btn" href="/cv.pdf" download>Download CV</a>
+        </div>
       </section>
     </section>
   )
