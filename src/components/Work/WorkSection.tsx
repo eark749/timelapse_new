@@ -54,7 +54,12 @@ export default function WorkSection() {
 
       <div className="work-grid">
         {projects.map((p, idx) => (
-          <article key={idx} className={`work-card theme-${p.theme}`} aria-label={p.title}>
+          <article
+            key={idx}
+            className={`work-card theme-${p.theme} is-sticky`}
+            aria-label={p.title}
+            style={{ zIndex: projects.length - idx }}
+          >
             <div className="work-media" aria-hidden={!p.videoSrc && !p.poster}>
               <video
                 className="work-video"

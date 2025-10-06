@@ -14,7 +14,7 @@ export default function Hero() {
         <ul className="nav-center">
           <li><a href="#work">Work</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#certifications">Credentials</a></li>
           <li><a href="#experience">Experience</a></li>
         </ul>
         <div className="nav-right">
@@ -40,7 +40,7 @@ export default function Hero() {
         </div>
 
         <aside className="home-right">
-          <p className="right-text">Let’s build together something thing bla bla bla type text</p>
+          <p className="right-text">Let’s build together something together</p>
           <a className="resume-link" href="/resume.pdf" target="_blank" rel="noreferrer">View Resume <span aria-hidden>→</span></a>
           <div className="icon-row" role="group" aria-label="Social links">
             <a className="icon-btn" href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
