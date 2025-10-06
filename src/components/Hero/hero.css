@@ -35,6 +35,8 @@
 [id]{ scroll-margin-top: 96px; }
 /* Extra margin to account for fixed nav height */
 #work, #skills, #certifications, #experience { scroll-margin-top: 110px; }
+/* Avoid extra whitespace at the bottom when jumping to contact */
+#contact{ scroll-margin-top: 12px; }
 /* (Removed global blur sheet; blur now confined to the nav itself) */
 
 .hero-grid{
@@ -43,6 +45,7 @@
   background: #f5f5f7;
   mask-image: radial-gradient(circle at 50% 20%, rgba(0,0,0,.9), transparent 70%);
   z-index: 0; /* base background below neuron canvas */
+  pointer-events: none; /* do not block clicks on content */
 }
 .hero-grid::before{
   content: "";
@@ -118,48 +121,26 @@
 }
 .contact-btn:hover{ transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,.12); background: #ffffff; }
 
-.hero-content{
-  position: relative;
-  z-index: 2; /* above neuron canvas */
-  margin-top: 12vh;
-  text-align: center;
-}
-.hero-avatar{ width: 148px; height: 148px; margin: 10px auto 8px; border-radius: 50%; padding: 4px; background: radial-gradient(120px 120px at 30% 20%, rgba(173,160,255,.4), rgba(113,97,255,.12)); box-shadow: 0 10px 26px rgba(0,0,0,.16); display: grid; place-items: center; overflow: hidden; position: relative; }
-.hero-avatar::after{ content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none; box-shadow: 0 0 18px 6px rgba(113,97,255,.40); outline: 2px solid rgba(173,160,255,.7); outline-offset: -2px; animation: ringPulse 2.6s ease-in-out infinite alternate; }
-.hero-avatar::before{ content: ""; position: absolute; inset: 0; border-radius: 50%; background: none; }
-.hero-avatar img{ width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background: #fff; transform: scale(1.08); transition: transform .25s ease, filter .25s ease; -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 76%, rgba(0,0,0,0) 100%); mask-image: radial-gradient(circle at 50% 50%, #000 76%, rgba(0,0,0,0) 100%); position: relative; z-index: 1; filter: drop-shadow(0 0 10px rgba(113,97,255,.45)); animation: imgGlow 2.8s ease-in-out infinite alternate; }
-.hero-avatar:hover img{ transform: scale(1.16); filter: drop-shadow(0 0 14px rgba(113,97,255,.6)); }
-
-@keyframes imgGlow{
-  from{ filter: drop-shadow(0 0 6px rgba(173,160,255,.35)); }
-  to{ filter: drop-shadow(0 0 14px rgba(113,97,255,.6)); }
-}
-
-@keyframes ringPulse{
-  0%{ box-shadow: 0 0 12px 4px rgba(113,97,255,.35); outline-color: rgba(173,160,255,.55); }
-  100%{ box-shadow: 0 0 22px 10px rgba(113,97,255,.6); outline-color: rgba(173,160,255,.85); }
-}
-.hero-content h1{
-  margin: 0 0 .6rem; font-size: clamp(2.4rem, 6vw, 4.2rem);
-  font-family: 'Orbitron', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing: .12em; color: var(--ink);
-}
-.hero-content p{
-  margin: 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.25rem);
-}
-
-.hero-about{
-  position: relative;
-  z-index: 2; /* above neuron canvas */
-  width: min(980px, 92%);
-  margin: 16px auto 0;
-  text-align: center;
-}
-.hero-about p{
-  margin: 0;
-  line-height: 1.6;
-  color: rgba(0,0,0,.7);
-}
+/* New home hero theme layout (keeps navbar intact) */
+.home-hero-shell{ width: min(1100px, 94%); margin: 8vh auto 0; display: grid; grid-template-columns: 1.05fr .9fr 1fr; align-items: center; gap: 36px; position: relative; z-index: 1; }
+.home-left .eyebrow{ font-size: clamp(1.6rem, 4vw, 3rem); color: rgba(0,0,0,.85); margin-bottom: 6px; }
+.home-title{ margin: 0; font-size: clamp(2.6rem, 6vw, 5rem); font-family: 'Orbitron', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; letter-spacing: .08em; }
+.title-underline{ width: 210px; height: 6px; background: linear-gradient(90deg, #b399ff, #7c3aed); border-radius: 999px; margin-top: 10px; }
+.home-sub{ margin: 18px 0 0; color: rgba(0,0,0,.7); line-height: 1.6; }
+.home-center{ display: grid; place-items: center; }
+.avatar-wrap{ width: min(340px, 48vw); aspect-ratio: 1/1; border-radius: 50%; background: transparent; display: grid; place-items: center; position: relative; }
+.avatar-wrap::before{ content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: none; pointer-events: none; }
+.avatar-wrap img{ width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background: #fff; outline: none; box-shadow: 0 0 12px rgba(113,97,255,.22); border: 2px solid rgba(113,97,255,.65); transform: translateY(0) scale(1); transition: transform .25s ease, box-shadow .25s ease, filter .25s ease, border-color .2s ease; }
+.avatar-wrap:hover img{ transform: translateY(-6px) scale(1.03); box-shadow: 0 0 22px 10px rgba(113,97,255,.38); border-color: rgba(113,97,255,.9); filter: saturate(1.05); }
+.avatar-wrap:hover::before{ background: rgba(173,160,255,.28); }
+.home-right{ display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 2; }
+.right-text{ margin: 0; color: rgba(0,0,0,.75); }
+.resume-link{ text-decoration: none; font-weight: 700; color: #111; display: inline-flex; align-items: center; gap: 6px; }
+.icon-row{ display: flex; gap: 12px; margin-top: 6px; position: relative; z-index: 3; }
+.icon-btn{ width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: #1c1c1e; background: #e8e8ef; box-shadow: inset 0 1px 0 rgba(255,255,255,.65), 0 6px 14px rgba(0,0,0,.14); border: 1px solid rgba(0,0,0,.08); transition: transform .15s ease, box-shadow .2s ease; cursor: pointer; position: relative; z-index: 1; }
+.icon-btn:hover{ transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
+.icon-btn .icon{ width: 18px; height: 18px; fill: currentColor; }
+.icon-btn.dot{ background: #d8d8df; }
 
 /* Neuron canvas layer: left side, below content, above grid */
 .neuron-canvas{
