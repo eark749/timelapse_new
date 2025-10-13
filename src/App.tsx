@@ -6,6 +6,7 @@ import SkillsSection from './components/Skills/SkillsSection'
 import CertificationsSection from './components/Certifications/CertificationsSection'
 import ExperienceSection from './components/Experience/ExperienceSection'
 import ContactSection from './components/Contact/ContactSection'
+import Chatbot from './components/Chatbot/Chatbot'
  
 
 export default function App() {
@@ -47,6 +48,7 @@ export default function App() {
           </>
         )}
       </main>
+      <Chatbot />
     </div>
   )
 }

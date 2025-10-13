@@ -19,5 +19,38 @@
   .xp-step.bottom{ padding-left: 24px; }
 }
 
+@media (max-width: 768px){
+  .glass-item{ padding: 10px 12px; border-radius: 14px; }
+  .glass-head{ grid-template-columns: 32px 1fr; gap: 8px; }
+  .glass-icon{ width: 26px; height: 26px; }
+  .xp-icon{ width: 16px; height: 16px; }
+  .glass-title .xp-title{ font-size: 0.95rem; }
+  .glass-title .xp-meta{ font-size: 0.9rem; }
+  .glass-title .xp-dates{ font-size: 0.85rem; }
+  .xp-summary{ padding-left: 40px; font-size: 0.95rem; }
+}
+
+@media (max-width: 640px){
+  .glass-item{ padding: 9px 10px; border-radius: 12px; }
+  .glass-head{ grid-template-columns: 30px 1fr; gap: 7px; }
+  .glass-icon{ width: 24px; height: 24px; }
+  .xp-icon{ width: 14px; height: 14px; }
+  .glass-title .xp-title{ font-size: 0.9rem; }
+  .glass-title .xp-meta{ font-size: 0.85rem; }
+  .glass-title .xp-dates{ font-size: 0.8rem; }
+  .xp-summary{ padding-left: 37px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px){
+  .glass-item{ padding: 8px 9px; }
+  .glass-head{ grid-template-columns: 28px 1fr; gap: 6px; }
+  .glass-icon{ width: 22px; height: 22px; }
+  .xp-icon{ width: 13px; height: 13px; }
+  .glass-title .xp-title{ font-size: 0.85rem; }
+  .glass-title .xp-meta{ font-size: 0.8rem; }
+  .glass-title .xp-dates{ font-size: 0.75rem; }
+  .xp-summary{ padding-left: 34px; font-size: 0.85rem; }
+}
+
 
 

@@ -66,9 +66,33 @@
 .skill.is-wide{ grid-column: span 2; grid-row: span 1; aspect-ratio: 2 / 1; }
 .skill.is-tall{ grid-column: span 1; grid-row: span 2; aspect-ratio: 1 / 2; }
 
+@media (max-width: 768px){
+  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
+  .skill-tiles{ grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px; }
+  .skill-tile{ height: 70px; }
+  .skill-tile .icon{ width: 30px; height: 30px; }
+}
+
 @media (max-width: 640px){
-  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
   .skill.is-lg, .skill.is-wide, .skill.is-tall{ grid-column: span 1; grid-row: span 1; aspect-ratio: 1 / 1; }
+  .skill .label{ font-size: 0.9rem; }
+  .skill .icon{ width: 28px; height: 28px; }
+  .skill-tiles{ grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
+  .skill-tile{ height: 64px; }
+  .skill-tile .icon{ width: 28px; height: 28px; }
+}
+
+@media (max-width: 480px){
+  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 8px; }
+  .skill .label{ font-size: 0.85rem; }
+  .skill .icon{ width: 24px; height: 24px; }
+  .skill .progress{ left: 6px; right: 6px; bottom: 6px; height: 8px; }
+  .skill .progress .pct{ font-size: 0.7rem; right: 6px; }
+  .skills-grid{ gap: 14px; }
+  .skill-card{ padding: 14px; }
+  .skill-header h3{ font-size: 0.95rem; }
+  .skill-pill{ padding: 5px 8px; font-size: 0.85rem; }
 }
 
 .skills-icons{ margin-bottom: 18px; }

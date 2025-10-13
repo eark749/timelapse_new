@@ -1,9 +1,51 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './hero.css'
-import heroAvatar from '../../../Gemini_Generated_Image_t81kr0t81kr0t81k.png'
+import heroAvatar from '../../../avvatar.png'
  
 
 export default function Hero() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isMobileMenuOpen) {
+        const target = event.target as Element
+        if (!target.closest('.mobile-nav') && !target.closest('.mobile-menu-btn')) {
+          closeMobileMenu()
+        }
+      }
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMobileMenuOpen) {
+        closeMobileMenu()
+      }
+    }
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside)
+      document.addEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'hidden' // Prevent background scroll
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMobileMenuOpen])
+
   return (
     <section className="hero-root" id="top">
       <div className="hero-grid" aria-hidden="true" />
@@ -11,16 +53,47 @@ export default function Hero() {
         <div className="nav-left">
           <a href="#top" aria-label="Go to top" className="avatar">VS</a>
         </div>
-        <ul className="nav-center">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#certifications">Credentials</a></li>
-          <li><a href="#experience">Experience</a></li>
+        
+        {/* Desktop Navigation */}
+        <ul className="nav-center desktop-nav">
+          <li><a href="#work" onClick={closeMobileMenu}>Work</a></li>
+          <li><a href="#skills" onClick={closeMobileMenu}>Skills</a></li>
+          <li><a href="#certifications" onClick={closeMobileMenu}>Credentials</a></li>
+          <li><a href="#experience" onClick={closeMobileMenu}>Experience</a></li>
         </ul>
-        <div className="nav-right">
-          <a className="contact-btn" href="#contact">Contact Me</a>
+
+        {/* Desktop Contact Button */}
+        <div className="nav-right desktop-nav">
+          <a className="contact-btn" href="#contact" onClick={closeMobileMenu}>Contact Me</a>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="mobile-menu-btn"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+          aria-expanded={isMobileMenuOpen}
+        >
+          <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+        <nav className="mobile-nav">
+          <ul className="mobile-nav-list">
+            <li><a href="#work" onClick={closeMobileMenu}>Work</a></li>
+            <li><a href="#skills" onClick={closeMobileMenu}>Skills</a></li>
+            <li><a href="#certifications" onClick={closeMobileMenu}>Credentials</a></li>
+            <li><a href="#experience" onClick={closeMobileMenu}>Experience</a></li>
+            <li><a href="#contact" onClick={closeMobileMenu} className="mobile-contact-btn">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
 
       {/* Spacer to prevent content from sitting beneath the fixed nav */}
       <div className="nav-spacer" aria-hidden="true" />
@@ -56,6 +129,14 @@ export default function Hero() {
           </div>
         </aside>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <a href="#work" className="scroll-down" aria-label="Scroll to work section">
+        <span className="scroll-text">Scroll Down</span>
+        <svg className="scroll-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5v14m0 0l-7-7m7 7l7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        </svg>
+      </a>
     </section>
   )
 }

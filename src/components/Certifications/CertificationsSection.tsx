@@ -5,14 +5,57 @@ type Cert = { title: string; issuer: string; year: string; proofUrl?: string; im
 type Badge = { name: string; platform: string; issuedOn: string; proofUrl: string; image?: string }
 
 const featured: Cert[] = [
-  { title: 'AWS Certified Solutions Architect – Associate', issuer: 'Amazon Web Services', year: '2024' },
-  { title: 'TensorFlow Developer Certificate', issuer: 'Google', year: '2023' },
-  { title: 'Deep Learning Specialization', issuer: 'deeplearning.ai', year: '2022' },
+  { 
+    title: 'AI Automation: Build LLM Apps & AI-Agents with n8n & API\'s', 
+    issuer: 'Udemy', 
+    year: 'July 2025',
+    proofUrl: 'https://www.udemy.com/certificate/UC-2d869174-096f-46a9-bac6-91da8ed5215e/'
+  },
+  { 
+    title: 'Azure AI Fundamentals', 
+    issuer: 'Udemy', 
+    year: 'October 2025',
+    proofUrl: 'https://www.udemy.com/certificate/UC-c1f0eb7a-25f4-49db-812e-75293f2e939d/'
+  },
+  { 
+    title: 'Docker', 
+    issuer: 'LinkedIn Learning Community', 
+    year: 'August 2025',
+    proofUrl: 'https://www.linkedin.com/learning/certificates/a40af6b9b510910bbb21a68449f1c51c439d989edbe8fd37'
+  },
+  { 
+    title: 'Supervised Machine Learning: Regression and Classification', 
+    issuer: 'DeepLearning.AI', 
+    year: 'June 2024',
+    proofUrl: 'https://www.coursera.org/account/accomplishments/records/8S3UFPCB5M69'
+  },
+  { 
+    title: 'Data Processing and Manipulation', 
+    issuer: 'University of Colorado Boulder', 
+    year: 'June 2024',
+    proofUrl: 'https://www.coursera.org/account/accomplishments/records/TAG2ZBKW3NDC'
+  },
+  { 
+    title: 'Ethical Hacking', 
+    issuer: 'NPTEL', 
+    year: 'October 2023',
+    proofUrl: 'https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL23CS75S83050103720010286'
+  },
 ]
 
 const badgesSample: Badge[] = [
-  { name: 'AWS Certified: Cloud Practitioner', platform: 'Credly', issuedOn: '2023', proofUrl: '#', image: '' },
-  { name: 'Docker Essentials', platform: 'Docker', issuedOn: '2020', proofUrl: '#', image: '' },
+  { 
+    name: 'Vertex AI', 
+    platform: 'Google', 
+    issuedOn: 'October 2025', 
+    proofUrl: 'https://www.credly.com/badges/eedb49a6-01cc-4e06-89e7-b48e2ad02baf/public_url'
+  },
+  { 
+    name: 'Cloud Foundations', 
+    platform: 'AWS', 
+    issuedOn: 'September 2025', 
+    proofUrl: 'https://www.credly.com/badges/85de4f60-c9bd-4219-b44b-09fb48acc35d/print'
+  },
 ]
 
 export default function CertificationsSection() {
@@ -37,7 +80,13 @@ export default function CertificationsSection() {
                 <div className="cert-title">{c.title}</div>
                 <div className="cert-sub">{c.issuer} · {c.year}</div>
               </div>
-              {c.proofUrl && <a className="proof" href={c.proofUrl} target="_blank" rel="noreferrer">View</a>}
+              {c.proofUrl && (
+                <a className="cert-arrow" href={c.proofUrl} target="_blank" rel="noreferrer" aria-label="View certificate">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                  </svg>
+                </a>
+              )}
             </li>
           ))}
         </ul>

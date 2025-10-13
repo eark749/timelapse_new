@@ -78,6 +78,82 @@
   .contact2-form{ margin-left: 0; width: 100%; }
 }
 
+@media (max-width: 768px){
+  .contact-root{ padding: 40px 0 20px; }
+  .contact2-shell{ gap: 28px; }
+  .contact2-eyebrow{ font-size: 0.9rem; letter-spacing: 0.14em; }
+  .contact2-title{ font-size: clamp(2.5rem, 8vw, 5rem); margin: 8px 0 14px; }
+  .contact2-email{ font-size: 0.95rem; }
+  .contact2-sub{ font-size: 0.95rem; }
+  .contact2-social .social-h{ font-size: 0.95rem; }
+  .social-link{ font-size: 0.9rem; gap: 6px; }
+  .social-link .icon{ width: 16px; height: 16px; }
+  .contact2-form{ padding: 12px; border-radius: 12px; }
+  .contact2-form .form-title{ font-size: 0.95rem; margin-bottom: 7px; }
+  .contact2-form input, .contact2-form textarea{ padding: 9px 11px; font-size: 0.95rem; }
+  .contact2-form button{ height: 40px; font-size: 0.95rem; }
+  .contact-header .eyebrow{ font-size: 0.85rem; }
+  .contact-header .headline{ font-size: clamp(1.8rem, 5vw, 2.5rem); }
+  .contact-header .sub{ font-size: 0.95rem; }
+  .contact-card{ padding: 14px; border-radius: 12px; }
+  .contact-card .card-title{ font-size: 0.95rem; margin-bottom: 7px; }
+  .field input{ height: 38px; padding: 7px 11px; font-size: 0.95rem; }
+  .submit-btn{ height: 40px; font-size: 0.95rem; }
+  .contact-copy{ font-size: 0.85rem; }
+  .copyright{ font-size: 0.9rem; }
+}
+
+@media (max-width: 640px){
+  .contact-root{ padding: 32px 0 18px; }
+  .contact2-shell{ gap: 24px; width: 96%; }
+  .contact2-eyebrow{ font-size: 0.85rem; letter-spacing: 0.12em; }
+  .contact2-title{ font-size: clamp(2rem, 7vw, 4rem); margin: 6px 0 12px; }
+  .contact2-email{ font-size: 0.9rem; }
+  .contact2-sub{ font-size: 0.9rem; }
+  .contact2-social .social-h{ font-size: 0.9rem; }
+  .social-link{ font-size: 0.85rem; gap: 5px; }
+  .social-link .icon{ width: 15px; height: 15px; }
+  .contact2-form{ padding: 10px; border-radius: 11px; }
+  .contact2-form .form-title{ font-size: 0.9rem; }
+  .contact2-form input, .contact2-form textarea{ padding: 8px 10px; font-size: 0.9rem; border-radius: 9px; }
+  .contact2-form button{ height: 38px; font-size: 0.9rem; border-radius: 9px; }
+  .contact-header{ width: 96%; }
+  .contact-header .eyebrow{ font-size: 0.8rem; }
+  .contact-header .headline{ font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .contact-header .sub{ font-size: 0.9rem; }
+  .contact-card{ width: 96%; padding: 12px; border-radius: 11px; }
+  .contact-card .card-title{ font-size: 0.9rem; }
+  .field input{ height: 36px; padding: 6px 10px; font-size: 0.9rem; border-radius: 7px; }
+  .submit-btn{ height: 38px; font-size: 0.9rem; border-radius: 9px; }
+  .contact-copy{ font-size: 0.8rem; }
+  .copyright{ font-size: 0.85rem; }
+}
+
+@media (max-width: 480px){
+  .contact-root{ padding: 28px 0 16px; }
+  .contact2-shell{ gap: 20px; width: 98%; }
+  .contact2-eyebrow{ font-size: 0.8rem; }
+  .contact2-title{ font-size: clamp(1.6rem, 9vw, 3rem); margin: 5px 0 10px; }
+  .contact2-email{ font-size: 0.85rem; }
+  .contact2-sub{ font-size: 0.85rem; }
+  .contact2-social .social-h{ font-size: 0.85rem; }
+  .social-link{ font-size: 0.8rem; }
+  .contact2-form{ padding: 9px; }
+  .contact2-form .form-title{ font-size: 0.85rem; }
+  .contact2-form input, .contact2-form textarea{ padding: 7px 9px; font-size: 0.85rem; }
+  .contact2-form button{ height: 36px; font-size: 0.85rem; }
+  .contact-header{ width: 98%; }
+  .contact-header .eyebrow{ font-size: 0.75rem; }
+  .contact-header .headline{ font-size: clamp(1.4rem, 7vw, 2rem); }
+  .contact-header .sub{ font-size: 0.85rem; }
+  .contact-card{ width: 98%; padding: 11px; }
+  .contact-card .card-title{ font-size: 0.85rem; }
+  .field input{ height: 34px; padding: 5px 9px; font-size: 0.85rem; }
+  .submit-btn{ height: 36px; font-size: 0.85rem; }
+  .contact-copy{ font-size: 0.75rem; }
+  .copyright{ font-size: 0.8rem; }
+}
+
 
 
 
@@ -92,10 +168,12 @@
 .contact-card .card-title{ font-weight: 800; margin-bottom: 8px; font-size: 1rem; }
 .card-form{ display: grid; gap: 10px; }
 .field{ display: grid; }
-.field input{ height: 40px; border-radius: 8px; border: 1.4px solid #1c1c1e; background: #fff; padding: 8px 12px; font-family: inherit; }
+.field input{ height: 40px; border-radius: 8px; border: 1.4px solid #1c1c1e; background: #fff; padding: 8px 12px; font-family: inherit; color: #1c1c1e; }
 .field input::placeholder{ color: rgba(0,0,0,.6); }
-.submit-btn{ margin-top: 6px; height: 42px; border-radius: 10px; font-weight: 800; letter-spacing: .02em; color: #1c1c1e; background: linear-gradient(#c6b7ff, #bbaaff); border: 1px solid rgba(0,0,0,.6); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
-.submit-btn:hover{ filter: brightness(1.02); }
-.form-success{ margin-top: 8px; font-weight: 700; }
+.submit-btn{ margin-top: 6px; height: 42px; border-radius: 10px; font-weight: 800; letter-spacing: .02em; color: #1c1c1e; background: linear-gradient(#c6b7ff, #bbaaff); border: 1px solid rgba(0,0,0,.6); box-shadow: 0 8px 18px rgba(0,0,0,.18); transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; cursor: pointer; }
+.submit-btn:hover{ transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 24px rgba(0,0,0,.24); filter: brightness(1.05); }
+.submit-btn:active{ transform: translateY(0) scale(0.98); box-shadow: 0 4px 12px rgba(0,0,0,.16); }
+.form-success{ margin-top: 8px; font-weight: 700; color: #22c55e; }
+.form-error{ margin-top: 8px; font-weight: 700; color: #f43f5e; }
 
 .contact-copy{ margin-top: 12px; color: rgba(0,0,0,.6); font-size: .9rem; }
