@@ -1,0 +1,172 @@
+.github-root {
+  /* Section class already provides width constraint and margins */
+}
+
+.github-card {
+  position: relative;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  outline: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.github-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.github-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.github-icon {
+  width: 24px;
+  height: 24px;
+  color: #1c1c1e;
+}
+
+.github-header h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1c1c1e;
+}
+
+.github-graph {
+  margin-bottom: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 12px;
+}
+
+.contribution-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.setup-msg {
+  padding: 32px 20px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.setup-msg p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  color: #1c1c1e;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.github-link:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .github-card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  
+  .github-header h3 {
+    font-size: 1rem;
+  }
+  
+  .github-icon {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .github-graph {
+    padding: 10px;
+  }
+  
+  .github-link {
+    font-size: 0.85rem;
+    padding: 7px 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .github-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+  
+  .github-header h3 {
+    font-size: 0.95rem;
+  }
+  
+  .github-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .setup-msg {
+    padding: 24px 16px;
+  }
+  
+  .setup-msg p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .github-card {
+    padding: 10px;
+  }
+  
+  .github-header {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .github-header h3 {
+    font-size: 0.9rem;
+  }
+  
+  .github-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .github-graph {
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .github-link {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}

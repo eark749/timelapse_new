@@ -5,8 +5,8 @@ import WorkSection from './components/Work/WorkSection'
 import SkillsSection from './components/Skills/SkillsSection'
 import CertificationsSection from './components/Certifications/CertificationsSection'
 import ExperienceSection from './components/Experience/ExperienceSection'
+import GitHubSection from './components/GitHub/GitHubSection'
 import ContactSection from './components/Contact/ContactSection'
-import Chatbot from './components/Chatbot/Chatbot'
  
 
 export default function App() {
@@ -44,11 +44,11 @@ export default function App() {
             <SkillsSection />
             <CertificationsSection />
             <ExperienceSection />
+            <GitHubSection />
             <ContactSection />
           </>
         )}
       </main>
-      <Chatbot />
     </div>
   )
 }
