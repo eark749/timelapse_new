@@ -103,7 +103,7 @@ export default function Hero() {
           <div className="eyebrow">I’m</div>
           <h1 className="home-title">Vansh Soni</h1>
           <div className="title-underline" aria-hidden="true" />
-          <p className="home-sub">AI Engineer specializing in machine learning and neural networks, with expertise in building and fine-tuning LLM models. I combine strong data processing capabilities with advanced AI techniques to develop intelligent solutions.</p>
+          <p className="home-sub">AI Engineer specializing in Gen AI and Machine learning, with expertise in Cloud computing and building Scalable infrastructure. I combine strong data processing capabilities with advanced AI techniques to develop intelligent solutions.</p>
         </div>
 
         <div className="home-center">
@@ -113,7 +113,6 @@ export default function Hero() {
         </div>
 
         <aside className="home-right">
-          <p className="right-text">Let’s build together something together</p>
           <a className="resume-link" href="/resume.pdf" target="_blank" rel="noreferrer">View Resume <span aria-hidden>→</span></a>
           <div className="icon-row" role="group" aria-label="Social links">
             <a className="icon-btn" href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
@@ -125,6 +124,9 @@ export default function Hero() {
             <a className="icon-btn" href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
               <svg className="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h3.7l5.03 6.9L16.3 3H21l-7.7 9.9L21 21h-3.7l-5.03-6.9L7.7 21H3l7.7-8.1L3 3Z"/></svg>
             </a>
+            <a className="icon-btn" href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
+              <svg className="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
             
           </div>
         </aside>
@@ -132,7 +134,6 @@ export default function Hero() {
 
       {/* Scroll Down Indicator */}
       <a href="#work" className="scroll-down" aria-label="Scroll to work section">
-        <span className="scroll-text">Scroll Down</span>
         <svg className="scroll-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 5v14m0 0l-7-7m7 7l7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
         </svg>

@@ -1,5 +1,6 @@
 import React from 'react'
 import './skills.css'
+import ScrollAnimation from '../ScrollAnimation/ScrollAnimation'
 
 type SkillSize = 'sm' | 'lg' | 'wide' | 'tall'
 type Skill = { name: string; size: SkillSize; level: number }
@@ -109,28 +110,32 @@ function SkillIcon({ name }: { name: string }) {
 export default function SkillsSection() {
   return (
     <section id="skills" className="section skills-root" aria-label="Skills">
-      <h2>Skills</h2>
+      <ScrollAnimation>
+        <h2>Skills</h2>
+      </ScrollAnimation>
 
-      <div className="skills-board">
-        {skills.map((s) => (
-          <div
-            key={s.name}
-            className={`skill is-${s.size}`}
-            aria-label={s.name}
-            title={s.name}
-            style={{ ['--level' as any]: `${s.level}%` }}
-          >
-            <div className="content">
-              <SkillIcon name={s.name} />
-              <span className="label">{s.name}</span>
+      <ScrollAnimation className="scale-up">
+        <div className="skills-board">
+          {skills.map((s) => (
+            <div
+              key={s.name}
+              className={`skill is-${s.size}`}
+              aria-label={s.name}
+              title={s.name}
+              style={{ ['--level' as any]: `${s.level}%` }}
+            >
+              <div className="content">
+                <SkillIcon name={s.name} />
+                <span className="label">{s.name}</span>
+              </div>
+              <div className="progress" aria-hidden="true">
+                <div className="bar" />
+                <span className="pct">{s.level}%</span>
+              </div>
             </div>
-            <div className="progress" aria-hidden="true">
-              <div className="bar" />
-              <span className="pct">{s.level}%</span>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </ScrollAnimation>
     </section>
   )
 }

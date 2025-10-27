@@ -6,9 +6,25 @@
   src: local('Orbitron'), local('Orbitron-Bold');
 }
 
-html, body, #root{
+/* Smooth scrolling for the entire page */
+html{
+  scroll-behavior: smooth;
+  height: 100%;
+  /* Better scrolling performance */
+  scroll-padding-top: 80px;
+}
+
+/* Smooth scroll with momentum on iOS */
+@supports (-webkit-overflow-scrolling: touch) {
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+body, #root{
   height: 100%;
 }
+
 body{
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -18,8 +34,17 @@ body{
 }
 .app-root{ min-height: 100%; }
 
-.site-content{ padding: 2rem; opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
-.site-content.show{ opacity: 1; transform: none; }
+.site-content{ 
+  padding: 2rem; 
+  opacity: 0; 
+  transform: translateY(16px); 
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.site-content.show{ 
+  opacity: 1; 
+  transform: none; 
+}
 
 /* Mobile responsive adjustments */
 @media (max-width: 768px){

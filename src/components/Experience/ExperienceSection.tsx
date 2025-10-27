@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import './experience.css'
+import ScrollAnimation from '../ScrollAnimation/ScrollAnimation'
 
 type Role = {
   title: string
@@ -73,20 +74,24 @@ export default function ExperienceSection() {
 
   return (
     <section id="experience" className="section exp-root" aria-label="Experience">
-      <h2>Experience</h2>
+      <ScrollAnimation>
+        <h2>Experience</h2>
+      </ScrollAnimation>
       <ul className="exp-list" ref={ref}>
         {roles.map((r, i) => (
-          <li className="glass-item" key={i}>
-            <div className="glass-head">
-              <div className="glass-icon"><Icon name={r.icon} /></div>
-              <div className="glass-title">
-                <div className="xp-title">{r.title}</div>
-                <div className="xp-meta">{r.company} · {r.location}</div>
-                <div className="xp-dates">{r.dates}</div>
+          <ScrollAnimation key={i} delay={i * 100}>
+            <li className="glass-item">
+              <div className="glass-head">
+                <div className="glass-icon"><Icon name={r.icon} /></div>
+                <div className="glass-title">
+                  <div className="xp-title">{r.title}</div>
+                  <div className="xp-meta">{r.company} · {r.location}</div>
+                  <div className="xp-dates">{r.dates}</div>
+                </div>
               </div>
-            </div>
-            <p className="xp-summary">{r.summary}</p>
-          </li>
+              <p className="xp-summary">{r.summary}</p>
+            </li>
+          </ScrollAnimation>
         ))}
       </ul>
     </section>

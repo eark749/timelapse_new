@@ -25,7 +25,11 @@
   border: 1px solid rgba(0,0,0,.06);
   outline: 1px solid rgba(255,255,255,.55);
   box-shadow: 0 8px 20px rgba(0,0,0,.10);
-  transition: transform .18s ease, box-shadow .22s ease, background .22s ease, color .22s ease, outline-color .22s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.3s ease, 
+              outline-color 0.3s ease;
   user-select: none;
   aspect-ratio: 1 / 1;
 }
@@ -33,7 +37,8 @@
   position: absolute; left: 10px; right: 10px; bottom: 10px; height: 10px;
   border-radius: 999px; background: rgba(113,97,255,.18); overflow: hidden;
   opacity: 0; transform: translateY(6px);
-  transition: opacity .18s ease, transform .18s ease;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .skill .progress .bar{
   height: 100%; width: var(--level, 0%);

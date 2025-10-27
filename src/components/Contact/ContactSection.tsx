@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import './contact.css'
+import ScrollAnimation from '../ScrollAnimation/ScrollAnimation'
 
 export default function ContactSection(){
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [description, setDescription] = useState('')
-  const [phone, setPhone] = useState('')
+  const [interest, setInterest] = useState('')
+  const [budget, setBudget] = useState('')
+  const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(false)
 
@@ -38,15 +40,16 @@ export default function ContactSection(){
         {
           from_name: name,
           from_email: email,
-          message: description,
-          phone: phone,
+          interest: interest,
+          budget: budget,
+          message: message,
           to_name: 'Vansh', // Your name
         }
       )
       
       console.log('Email sent successfully:', response)
       setSubmitted(true)
-      setName(''); setEmail(''); setDescription(''); setPhone('')
+      setName(''); setEmail(''); setInterest(''); setBudget(''); setMessage('')
       window.setTimeout(() => setSubmitted(false), 3000)
     } catch (err) {
       console.error('Failed to send email:', err)
@@ -57,32 +60,60 @@ export default function ContactSection(){
 
   return (
     <section id="contact" className="contact-new" aria-label="Contact">
-      <div className="contact-header">
-        
-        <h2 className="headline">I’ve been waiting<br/>for you.</h2>
-        
-      </div>
+      <ScrollAnimation>
+        <div className="contact-header">
+          <h2 className="headline">Get in touch 👋</h2>
+        </div>
+      </ScrollAnimation>
 
-      <div className="contact-card">
-        <div className="card-title">Let me know how I can help.</div>
-        <form onSubmit={handleSubmit} className="card-form">
-          <div className="field">
-            <input placeholder="Enter your name" value={name} onChange={(e)=>setName(e.target.value)} required />
-          </div>
-          <div className="field">
-            <input type="email" placeholder="Enter your email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
-          </div>
-          <div className="field">
-            <input placeholder="Description or query" value={description} onChange={(e)=>setDescription(e.target.value)} />
-          </div>
-          <div className="field">
-            <input placeholder="Phone number" value={phone} onChange={(e)=>setPhone(e.target.value)} />
-          </div>
-          <button type="submit" className="submit-btn">Submit</button>
-        </form>
-        {submitted && <div className="form-success" role="status">Thanks! I'll get back to you.</div>}
-        {error && <div className="form-error" role="alert">Failed to send message. Please try again.</div>}
-      </div>
+      <ScrollAnimation className="scale-up" delay={200}>
+        <div className="contact-card">
+          <form onSubmit={handleSubmit} className="card-form">
+            <div className="form-row">
+              <div className="field">
+                <label>Your name</label>
+                <input placeholder="Enter your name" value={name} onChange={(e)=>setName(e.target.value)} required />
+              </div>
+              <div className="field">
+                <label>Your email</label>
+                <input type="email" placeholder="Enter your email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
+              </div>
+            </div>
+            
+            <div className="field">
+              <label>What you are interested</label>
+              <select value={interest} onChange={(e)=>setInterest(e.target.value)} required>
+                <option value="">Select interest</option>
+                <option value="AI/ML Development">AI/ML Development</option>
+                <option value="LLM Integration">LLM Integration</option>
+                <option value="Data Analysis">Data Analysis</option>
+                <option value="Consulting">Consulting</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div className="field">
+              <label>Message</label>
+              <textarea 
+                placeholder="Let tell us know your project about" 
+                value={message} 
+                onChange={(e)=>setMessage(e.target.value)}
+                rows={5}
+                required
+              />
+            </div>
+
+            <button type="submit" className="submit-btn">
+              Just Send
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </button>
+          </form>
+          {submitted && <div className="form-success" role="status">Thanks! I'll get back to you.</div>}
+          {error && <div className="form-error" role="alert">Failed to send message. Please try again.</div>}
+        </div>
+      </ScrollAnimation>
       <div className="contact-copy">© 2025 <strong>Vansh</strong>. All rights reserved.</div>
     </section>
   )

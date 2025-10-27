@@ -5,7 +5,6 @@ import WorkSection from './components/Work/WorkSection'
 import SkillsSection from './components/Skills/SkillsSection'
 import CertificationsSection from './components/Certifications/CertificationsSection'
 import ExperienceSection from './components/Experience/ExperienceSection'
-import GitHubSection from './components/GitHub/GitHubSection'
 import ContactSection from './components/Contact/ContactSection'
  
 
@@ -44,7 +43,6 @@ export default function App() {
             <SkillsSection />
             <CertificationsSection />
             <ExperienceSection />
-            <GitHubSection />
             <ContactSection />
           </>
         )}
