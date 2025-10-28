@@ -5,6 +5,7 @@ import heroAvatar from '../../../avvatar.png'
 
 export default function Hero() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -12,6 +13,12 @@ export default function Hero() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
+  }
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('vanshsoniofficial@gmail.com')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   // Close mobile menu when clicking outside
@@ -118,7 +125,9 @@ export default function Hero() {
           <div className="hero-footer">
             <div className="footer-left">
               <span>vanshsoniofficial@gmail.com</span>
-              <button className="copy-btn" aria-label="Copy email">Copy</button>
+              <button className="copy-btn" onClick={copyEmail} aria-label="Copy email">
+                {copied ? 'Copied!' : 'Copy'}
+              </button>
             </div>
             <div className="icon-row" role="group" aria-label="Social links">
               <a className="icon-btn" href="https://www.linkedin.com/in/vansh-soni-7b918524a/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
