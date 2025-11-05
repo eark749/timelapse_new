@@ -5,6 +5,7 @@ import ScrollAnimation from '../ScrollAnimation/ScrollAnimation'
 type Project = {
   title: string
   description: string
+  detailedDescription?: string
   videoSrc?: string
   poster?: string
   theme: 'a' | 'b' | 'c' | 'd' | 'e'
@@ -13,44 +14,49 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: 'Timeline Studio',
-    description: 'Desktop timeline editor. Fast scrubbing, multi-track export.',
+    title: 'Medi',
+    description: 'Medical chatbot & document management system',
+    detailedDescription: 'Medi is a comprehensive medical chatbot and document management backend system supported by Azure cloud infrastructure. The codebase includes API services, intelligent agents for medical question answering, document uploads, and integration with cloud storage/databases.',
     videoSrc: '',
-    poster: 'https://dummyimage.com/1280x800/111/fff.png&text=Desktop+Preview',
+    poster: '/AI-in-Healthcare.jpg',
     theme: 'a',
-    link: '#',
+    link: 'https://github.com/eark749/Medi',
   },
   {
-    title: 'Insight Dashboard',
-    description: 'Real-time analytics for product usage.',
+    title: 'SmartAssist',
+    description: 'AI-Powered Document Assistant with RAG',
+    detailedDescription: 'A production-ready RAG (Retrieval-Augmented Generation) system built on AWS, leveraging Amazon Bedrock, OpenSearch, and FastAPI to provide intelligent document-based Q&A capabilities.',
     videoSrc: '',
-    poster: 'https://dummyimage.com/1280x800/222/fff.png&text=Desktop+Preview',
+    poster: '/smart_assit.png',
     theme: 'b',
-    link: '#',
+    link: 'https://raw.githubusercontent.com/eark749/smartassist-backend/37e32e4e5c3f9d4399fa61c8f8272efc5ced8769/smartassist-architecture.svg',
   },
   {
-    title: 'GenAI Designer',
-    description: 'Generate UI layouts with prompts.',
+    title: 'HR AI',
+    description: 'AI-Powered HR Management System',
+    detailedDescription: 'HR AI is a modern, full-stack HR Management System that combines traditional REST API functionality with an intelligent AI chatbot assistant. Built with FastAPI and React, it provides employees with an intuitive interface to manage leaves, overtime, attendance corrections, payslips.',
     videoSrc: '',
-    poster: 'https://dummyimage.com/1280x800/333/fff.png&text=Desktop+Preview',
+    poster: '/hrAI.jpg',
     theme: 'c',
-    link: '#',
+    link: 'https://github.com/eark749/HR_AI',
   },
   {
-    title: 'Ops Orchestrator',
-    description: 'Automate fleet tasks across environments.',
+    title: 'Text Generation using RNN',
+    description: "A simple RNN model trained on shakespeares text to generate text like him",
+    detailedDescription: 'A character-level Recurrent Neural Network (RNN) implementation trained on Shakespeare\'s complete works to generate text in his literary style. The model learns patterns, vocabulary, and sentence structures from the original texts to produce creative, Shakespeare-inspired content using deep learning sequence modeling.',
     videoSrc: '',
-    poster: 'https://dummyimage.com/1280x800/444/fff.png&text=Desktop+Preview',
+    poster: '/textflow1.png',
     theme: 'd',
-    link: '#',
+    link: 'https://github.com/eark749/RNN/blob/main/RNN(recurrent%20nueral%20network).py',
   },
   {
-    title: 'Media Pipeline',
-    description: 'GPU-accelerated transcode with presets.',
+    title: 'The-Orchestrator',
+    description: 'MCP Market-place for AI agents',
+    detailedDescription: 'A comprehensive marketplace platform for AI agents built on the Model Context Protocol (MCP). The Orchestrator enables seamless discovery, integration, and orchestration of specialized AI agents, allowing developers to compose complex AI workflows by connecting multiple agents with standardized interfaces and communication protocols.',
     videoSrc: '',
-    poster: 'https://dummyimage.com/1280x800/555/fff.png&text=Desktop+Preview',
+    poster: '/mcp market.png',
     theme: 'e',
-    link: '#',
+    link: 'https://github.com/eark749/The-Orchestrator',
   },
 ]
 
@@ -96,7 +102,10 @@ export default function WorkSection() {
               </div>
               <div className="work-meta">
                 <h3>{p.title}</h3>
-                <p>{p.description}</p>
+                <p className="work-description-short">{p.description}</p>
+                {p.detailedDescription && (
+                  <p className="work-description-detailed">{p.detailedDescription}</p>
+                )}
               </div>
             </article>
           </ScrollAnimation>

@@ -116,6 +116,50 @@
 .work-meta h3{ margin: 0 0 8px; font-size: 1.25rem; letter-spacing: .02em; color: #1c1c1e; }
 .work-meta p{ margin: 0; opacity: .85; color: rgba(0,0,0,.7); }
 
+.work-description-short{
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: fadeInUp 0.4s ease;
+}
+
+.work-description-detailed{
+  opacity: 0;
+  transform: translateY(10px);
+  margin-top: 8px;
+  line-height: 1.5;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s, max-height 0.4s ease;
+}
+
+.work-card:hover .work-description-short{
+  opacity: 0;
+  transform: translateY(-10px);
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+}
+
+.work-card:hover .work-description-detailed{
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Theme variants now unified to purple */
 .work-card.theme-a{ background: #ffffff; }
 .work-card.theme-b{ background: #ffffff; }

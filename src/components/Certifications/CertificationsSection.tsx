@@ -7,6 +7,12 @@ type Badge = { name: string; platform: string; issuedOn: string; proofUrl: strin
 
 const featured: Cert[] = [
   { 
+    title: 'LLM Applications With Prompt Engineering', 
+    issuer: 'NVIDIA', 
+    year: 'October 2025',
+    proofUrl: 'https://learn.nvidia.com/certificates?id=HCQrbDVNREas0mefmsQKIQ#'
+  },
+  { 
     title: 'AI Automation: Build LLM Apps & AI-Agents with n8n & API\'s', 
     issuer: 'Udemy', 
     year: 'July 2025',
