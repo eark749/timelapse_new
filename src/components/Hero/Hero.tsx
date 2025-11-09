@@ -115,7 +115,7 @@ export default function Hero() {
           <h1 className="hero-main-title">Building intelligent AI<br/>solutions, scalable systems,<br/>and innovative experiences.</h1>
           
           <div className="hero-actions">
-            <a className="resume-link-new" href="/resume1.pdf" target="_blank" rel="noreferrer">
+            <a className="resume-link-new" href="/vansh_soni.pdf" target="_blank" rel="noreferrer">
               View Resume
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
