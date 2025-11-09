@@ -2,13 +2,16 @@
   --pill-ink: #1c1c1e;
 }
 
-.skills-root{ padding-bottom: 24px; }
+.skills-root{ 
+  padding-bottom: 24px;
+}
 
 .skills-board{
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 14px;
+  padding: 0 4px;
 }
 .skill{
   /* White tiles with subtle purple accent borders */
@@ -71,30 +74,59 @@
 .skill.is-wide{ grid-column: span 2; grid-row: span 1; aspect-ratio: 2 / 1; }
 .skill.is-tall{ grid-column: span 1; grid-row: span 2; aspect-ratio: 1 / 2; }
 
-@media (max-width: 768px){
-  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
-  .skill-tiles{ grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px; }
-  .skill-tile{ height: 70px; }
-  .skill-tile .icon{ width: 30px; height: 30px; }
+/* Tablet/iPad */
+@media (max-width: 1024px){
+  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(115px, 1fr)); gap: 13px; }
+  .skill .label{ font-size: 0.95rem; }
+  .skill .icon{ width: 30px; height: 30px; }
+  .skill-tiles{ grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 11px; }
+  .skill-tile{ height: 72px; }
+  .skill-tile .icon{ width: 32px; height: 32px; }
+  .skills-grid{ gap: 16px; }
+  .skill-card{ padding: 15px; }
+  .skill-header h3{ font-size: 0.98rem; }
+  .skill-pill{ padding: 5.5px 9px; font-size: 0.92rem; }
 }
 
-@media (max-width: 640px){
-  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
-  .skill.is-lg, .skill.is-wide, .skill.is-tall{ grid-column: span 1; grid-row: span 1; aspect-ratio: 1 / 1; }
+/* Mobile landscape and small tablets */
+@media (max-width: 768px){
+  .skills-root{ padding-bottom: 20px; }
+  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 14px; padding: 0 8px; }
   .skill .label{ font-size: 0.9rem; }
   .skill .icon{ width: 28px; height: 28px; }
-  .skill-tiles{ grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
-  .skill-tile{ height: 64px; }
-  .skill-tile .icon{ width: 28px; height: 28px; }
+  .skill-tiles{ grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 12px; padding: 0 8px; }
+  .skill-tile{ height: 68px; }
+  .skill-tile .icon{ width: 30px; height: 30px; }
+  .skills-grid{ gap: 16px; padding: 0 8px; }
 }
 
+/* Mobile portrait */
+@media (max-width: 640px){
+  .skills-root{ padding-bottom: 18px; }
+  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 12px; padding: 0 10px; }
+  .skill.is-lg, .skill.is-wide, .skill.is-tall{ grid-column: span 1; grid-row: span 1; aspect-ratio: 1 / 1; }
+  .skill .label{ font-size: 0.88rem; }
+  .skill .icon{ width: 27px; height: 27px; }
+  .skill .progress{ left: 8px; right: 8px; bottom: 8px; height: 9px; }
+  .skill .progress .pct{ font-size: 0.72rem; right: 7px; }
+  .skill-tiles{ grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 11px; padding: 0 10px; }
+  .skill-tile{ height: 64px; }
+  .skill-tile .icon{ width: 28px; height: 28px; }
+  .skills-grid{ gap: 15px; padding: 0 10px; }
+}
+
+/* Small mobile devices */
 @media (max-width: 480px){
-  .skills-board{ grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 8px; }
-  .skill .label{ font-size: 0.85rem; }
+  .skills-root{ padding-bottom: 16px; }
+  .skills-board{ grid-template-columns: repeat(2, 1fr) !important; gap: 10px; padding: 0 12px; }
+  .skill .label{ font-size: 0.82rem; }
   .skill .icon{ width: 24px; height: 24px; }
   .skill .progress{ left: 6px; right: 6px; bottom: 6px; height: 8px; }
-  .skill .progress .pct{ font-size: 0.7rem; right: 6px; }
-  .skills-grid{ gap: 14px; }
+  .skill .progress .pct{ font-size: 0.68rem; right: 6px; }
+  .skill-tiles{ grid-template-columns: repeat(2, 1fr) !important; gap: 10px; padding: 0 12px; }
+  .skill-tile{ height: 60px; }
+  .skill-tile .icon{ width: 26px; height: 26px; }
+  .skills-grid{ gap: 14px; padding: 0 12px; }
   .skill-card{ padding: 14px; }
   .skill-header h3{ font-size: 0.95rem; }
   .skill-pill{ padding: 5px 8px; font-size: 0.85rem; }

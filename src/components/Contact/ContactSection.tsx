@@ -104,7 +104,7 @@ export default function ContactSection(){
             </div>
 
             <button type="submit" className="submit-btn">
-              Just Send
+              Send
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
               </svg>

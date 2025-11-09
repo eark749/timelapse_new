@@ -6,7 +6,6 @@ type Project = {
   title: string
   description: string
   detailedDescription?: string
-  videoSrc?: string
   poster?: string
   theme: 'a' | 'b' | 'c' | 'd' | 'e'
   link?: string
@@ -17,8 +16,7 @@ const projects: Project[] = [
     title: 'Medi',
     description: 'Medical chatbot & document management system',
     detailedDescription: 'Medi is a comprehensive medical chatbot and document management backend system supported by Azure cloud infrastructure. The codebase includes API services, intelligent agents for medical question answering, document uploads, and integration with cloud storage/databases.',
-    videoSrc: '',
-    poster: '/AI-in-Healthcare.jpg',
+    poster: '/1.health_care.png',
     theme: 'a',
     link: 'https://github.com/eark749/Medi',
   },
@@ -26,8 +24,7 @@ const projects: Project[] = [
     title: 'SmartAssist',
     description: 'AI-Powered Document Assistant with RAG',
     detailedDescription: 'A production-ready RAG (Retrieval-Augmented Generation) system built on AWS, leveraging Amazon Bedrock, OpenSearch, and FastAPI to provide intelligent document-based Q&A capabilities.',
-    videoSrc: '',
-    poster: '/smart_assit.png',
+    poster: '/2.smart_assit.png',
     theme: 'b',
     link: 'https://raw.githubusercontent.com/eark749/smartassist-backend/37e32e4e5c3f9d4399fa61c8f8272efc5ced8769/smartassist-architecture.svg',
   },
@@ -35,8 +32,7 @@ const projects: Project[] = [
     title: 'HR AI',
     description: 'AI-Powered HR Management System',
     detailedDescription: 'HR AI is a modern, full-stack HR Management System that combines traditional REST API functionality with an intelligent AI chatbot assistant. Built with FastAPI and React, it provides employees with an intuitive interface to manage leaves, overtime, attendance corrections, payslips.',
-    videoSrc: '',
-    poster: '/hrAI.jpg',
+    poster: '/3.hrai.png',
     theme: 'c',
     link: 'https://github.com/eark749/HR_AI',
   },
@@ -44,8 +40,7 @@ const projects: Project[] = [
     title: 'Text Generation using RNN',
     description: "A simple RNN model trained on shakespeares text to generate text like him",
     detailedDescription: 'A character-level Recurrent Neural Network (RNN) implementation trained on Shakespeare\'s complete works to generate text in his literary style. The model learns patterns, vocabulary, and sentence structures from the original texts to produce creative, Shakespeare-inspired content using deep learning sequence modeling.',
-    videoSrc: '',
-    poster: '/textflow1.png',
+    poster: '/5.rnn.png',
     theme: 'd',
     link: 'https://github.com/eark749/RNN/blob/main/RNN(recurrent%20nueral%20network).py',
   },
@@ -53,8 +48,7 @@ const projects: Project[] = [
     title: 'The-Orchestrator',
     description: 'MCP Market-place for AI agents',
     detailedDescription: 'A comprehensive marketplace platform for AI agents built on the Model Context Protocol (MCP). The Orchestrator enables seamless discovery, integration, and orchestration of specialized AI agents, allowing developers to compose complex AI workflows by connecting multiple agents with standardized interfaces and communication protocols.',
-    videoSrc: '',
-    poster: '/mcp market.png',
+    poster: '/4.mcp.png',
     theme: 'e',
     link: 'https://github.com/eark749/The-Orchestrator',
   },
@@ -88,17 +82,15 @@ export default function WorkSection() {
                   </svg>
                 </a>
               )}
-              <div className="work-media" aria-hidden={!p.videoSrc && !p.poster}>
-                <video
-                  className="work-video"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  poster={p.poster}
-                >
-                  {p.videoSrc ? <source src={p.videoSrc} type="video/mp4" /> : null}
-                </video>
+              <div className="work-media" aria-hidden={!p.poster}>
+                {p.poster && (
+                  <img
+                    className="work-image"
+                    src={p.poster}
+                    alt={`${p.title} project thumbnail`}
+                    loading="lazy"
+                  />
+                )}
               </div>
               <div className="work-meta">
                 <h3>{p.title}</h3>

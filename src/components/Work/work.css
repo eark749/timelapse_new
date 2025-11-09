@@ -15,6 +15,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  padding: 0 4px;
 }
 
 /* Scroll stack behavior */
@@ -101,7 +102,7 @@
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(0,0,0,.20);
 }
-.work-video{
+.work-image{
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10; /* desktop product preview */
@@ -110,8 +111,9 @@
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
               filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(0,0,0,.3);
+  border-radius: 0; /* inherit from parent work-media */
 }
-.work-card:hover .work-video{ transform: scale(1.03); filter: saturate(115%); }
+.work-card:hover .work-image{ transform: scale(1.03); filter: saturate(115%); }
 
 .work-meta h3{ margin: 0 0 8px; font-size: 1.25rem; letter-spacing: .02em; color: #1c1c1e; }
 .work-meta p{ margin: 0; opacity: .85; color: rgba(0,0,0,.7); }
@@ -167,46 +169,96 @@
 .work-card.theme-d{ background: #ffffff; }
 .work-card.theme-e{ background: #ffffff; }
 
+/* Tablet/iPad landscape */
+@media (max-width: 1024px){
+  .work-grid{ gap: 20px; }
+  .work-card{ 
+    grid-template-columns: minmax(320px, 480px) 1fr; 
+    padding: 24px;
+    gap: 24px;
+  }
+  .work-card.is-sticky{ bottom: 20px; }
+  .work-meta h3{ font-size: 1.15rem; }
+  .work-meta p{ font-size: 0.95rem; }
+  .project-link{ width: 38px; height: 38px; top: 18px; right: 18px; }
+  .project-link svg{ width: 19px; height: 19px; }
+}
+
+/* Tablet/iPad portrait and mobile landscape */
 @media (max-width: 980px){
   .work-card{ 
     grid-template-columns: 1fr; 
     padding: 20px;
     gap: 20px;
   }
-  .work-video{ aspect-ratio: 16 / 9; }
+  .work-image{ aspect-ratio: 16 / 9; }
+  .work-media{ border-radius: 16px; }
 }
 
+/* Mobile landscape and small tablets */
 @media (max-width: 768px){
+  .work-root{ padding-bottom: 20px; }
+  .work-grid{ gap: 20px; padding: 0 8px; }
+  .work-card{ 
+    padding: 18px;
+    border-radius: 20px;
+    gap: 18px;
+  }
+  .work-card.is-sticky{ bottom: 18px; }
+  .work-card:hover{ 
+    transform: translateY(-4px) scale(1.005); 
+  }
+  .work-media{ border-radius: 14px; }
+  .work-meta h3{ font-size: 1.05rem; }
+  .work-meta p{ font-size: 0.9rem; }
+  .project-link{ width: 36px; height: 36px; top: 16px; right: 16px; }
+  .project-link svg{ width: 18px; height: 18px; }
+}
+
+/* Mobile portrait */
+@media (max-width: 640px){
+  .work-root{ padding-bottom: 18px; }
+  .work-grid{ gap: 18px; padding: 0 10px; }
   .work-card{ 
     padding: 16px;
-    border-radius: 20px;
+    border-radius: 18px;
     gap: 16px;
-  }
-  .work-card.is-sticky{ bottom: 16px; }
-  .work-media{ border-radius: 14px; }
-  .work-meta h3{ font-size: 1.1rem; }
-  .work-meta p{ font-size: 0.95rem; }
-}
-
-@media (max-width: 640px){
-  .work-grid{ gap: 18px; }
-  .work-card{ 
-    padding: 14px;
-    border-radius: 16px;
   }
   .work-card:hover{ 
     transform: translateY(-3px) scale(1.005); 
   }
+  .work-card.is-sticky{ bottom: 16px; }
+  .work-media{ border-radius: 12px; }
   .work-meta h3{ font-size: 1rem; }
-  .work-meta p{ font-size: 0.9rem; }
+  .work-meta p{ font-size: 0.88rem; line-height: 1.5; }
+  .work-description-short{ font-size: 0.88rem; }
+  .work-description-detailed{ font-size: 0.88rem; }
+  .project-link{ width: 34px; height: 34px; top: 14px; right: 14px; }
+  .project-link svg{ width: 17px; height: 17px; }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px){
+  .work-root{ padding-bottom: 16px; }
+  .work-grid{ gap: 16px; padding: 0 12px; }
   .work-card{ 
     grid-template-columns: minmax(0, 1fr);
-    padding: 12px;
+    padding: 14px;
+    border-radius: 16px;
+    gap: 14px;
   }
-  .work-video{ aspect-ratio: 4 / 3; }
+  .work-card:hover{ 
+    transform: translateY(-2px) scale(1.002); 
+  }
+  .work-card.is-sticky{ bottom: 14px; }
+  .work-media{ border-radius: 11px; }
+  .work-image{ aspect-ratio: 4 / 3; }
+  .work-meta h3{ font-size: 0.95rem; }
+  .work-meta p{ font-size: 0.85rem; line-height: 1.5; }
+  .work-description-short{ font-size: 0.85rem; }
+  .work-description-detailed{ font-size: 0.85rem; }
+  .project-link{ width: 32px; height: 32px; top: 12px; right: 12px; }
+  .project-link svg{ width: 16px; height: 16px; }
 }
 
 

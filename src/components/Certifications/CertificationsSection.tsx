@@ -66,13 +66,13 @@ const badgesSample: Badge[] = [
   { 
     name: 'Vertex AI', 
     platform: 'Google', 
-    issuedOn: 'October 2025', 
+    issuedOn: '2025', 
     proofUrl: 'https://www.credly.com/badges/eedb49a6-01cc-4e06-89e7-b48e2ad02baf/public_url'
   },
   { 
     name: 'Cloud Foundations', 
     platform: 'AWS', 
-    issuedOn: 'September 2025', 
+    issuedOn: '2025', 
     proofUrl: 'https://www.credly.com/badges/85de4f60-c9bd-4219-b44b-09fb48acc35d/print'
   },
 ]
@@ -83,7 +83,7 @@ export default function CertificationsSection() {
     <section id="certifications" className="section certs-root" aria-label="Certifications">
       <ScrollAnimation>
         <div className="certs-header">
-          <h2>Credentials</h2>
+          <h2>Certifications</h2>
           <div className="tabs" role="tablist">
             <button className={`tab ${tab==='certs'?'active':''}`} role="tab" aria-selected={tab==='certs'} onClick={()=>setTab('certs')}>Certifications</button>
             <button className={`tab ${tab==='badges'?'active':''}`} role="tab" aria-selected={tab==='badges'} onClick={()=>setTab('badges')}>Badges</button>
@@ -123,6 +123,11 @@ export default function CertificationsSection() {
                   <div className="badge-title">{b.name}</div>
                   <div className="badge-sub">{b.platform} · {b.issuedOn}</div>
                 </div>
+                <span className="badge-arrow" aria-label="View badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                  </svg>
+                </span>
               </a>
             ))}
           </div>

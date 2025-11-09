@@ -41,6 +41,7 @@ export default function Hero() {
     if (isMobileMenuOpen) {
       document.addEventListener('click', handleClickOutside)
       document.addEventListener('keydown', handleEscape)
+      
       document.body.style.overflow = 'hidden' // Prevent background scroll
     } else {
       document.body.style.overflow = 'unset'
@@ -65,7 +66,7 @@ export default function Hero() {
         <ul className="nav-center desktop-nav">
           <li><a href="#work" onClick={closeMobileMenu}>Work</a></li>
           <li><a href="#skills" onClick={closeMobileMenu}>Skills</a></li>
-          <li><a href="#certifications" onClick={closeMobileMenu}>Credentials</a></li>
+          <li><a href="#certifications" onClick={closeMobileMenu}>Certifications</a></li>
           <li><a href="#experience" onClick={closeMobileMenu}>Experience</a></li>
         </ul>
 
@@ -95,7 +96,7 @@ export default function Hero() {
           <ul className="mobile-nav-list">
             <li><a href="#work" onClick={closeMobileMenu}>Work</a></li>
             <li><a href="#skills" onClick={closeMobileMenu}>Skills</a></li>
-            <li><a href="#certifications" onClick={closeMobileMenu}>Credentials</a></li>
+            <li><a href="#certifications" onClick={closeMobileMenu}>Certifications</a></li>
             <li><a href="#experience" onClick={closeMobileMenu}>Experience</a></li>
             <li><a href="#contact" onClick={closeMobileMenu} className="mobile-contact-btn">Contact Me</a></li>
           </ul>

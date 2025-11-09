@@ -1,0 +1,212 @@
+/* ===================================
+   RESPONSIVE UTILITIES
+   Comprehensive responsive design system
+   =================================== */
+
+/* Prevent horizontal scrolling on all devices */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"], input[type="submit"], input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* iPad Pro specific (1024x1366) */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* iPad (768x1024) */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .hero-root {
+    min-height: 100vh;
+  }
+  
+  .home-hero-shell {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+/* Portrait orientation adjustments */
+@media (max-width: 768px) and (orientation: portrait) {
+  .hero-root {
+    min-height: 100vh;
+  }
+}
+
+/* Prevent zoom on input focus (iOS) */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Smooth scrolling for touch devices */
+@media (hover: none) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    font-weight: 400;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark mode support (future-proofing) */
+@media (prefers-color-scheme: dark) {
+  /* Placeholder for dark mode styles if needed */
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+  
+  .hero-nav,
+  .mobile-menu-btn,
+  .scroll-down,
+  .contact2-form {
+    display: none;
+  }
+}
+
+/* Very small devices (< 375px) */
+@media (max-width: 374px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .section {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/* Large tablets and small laptops (1024px - 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .section {
+    width: min(1050px, 92%);
+  }
+}
+
+/* Extra large screens (> 1920px) */
+@media (min-width: 1921px) {
+  .section {
+    width: min(1400px, 90%);
+  }
+  
+  .hero-nav {
+    width: min(1200px, 90%);
+  }
+}
+
+/* Hover states only on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  /* Hover styles are already defined in component CSS */
+}
+
+/* Touch device specific adjustments */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase spacing for better touch targets */
+  .nav-center {
+    gap: 24px;
+  }
+  
+  .icon-row {
+    gap: 12px;
+  }
+  
+  /* Disable hover effects on touch devices */
+  .work-card:hover,
+  .skill:hover,
+  .cert-item:hover {
+    transform: none;
+  }
+  
+  /* Enable tap/click effects instead */
+  .work-card:active {
+    transform: scale(0.98);
+  }
+  
+  .skill:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Safe area insets for notched devices (iPhone X+) */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+  
+  .hero-nav {
+    padding-left: max(14px, calc(14px + env(safe-area-inset-left)));
+    padding-right: max(14px, calc(14px + env(safe-area-inset-right)));
+  }
+}
+
+/* Foldable devices (experimental) */
+@media (horizontal-viewport-segments: 2) {
+  .section {
+    width: 100%;
+  }
+}
+
+/* Container queries support (future-proofing) */
+@supports (container-type: inline-size) {
+  .section {
+    container-type: inline-size;
+  }
+}
+

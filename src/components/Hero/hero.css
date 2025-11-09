@@ -23,6 +23,7 @@
 .section{
   width: min(1100px, 94%);
   margin: 72px auto 24px;
+  padding: 0 16px;
 }
 .section h2{
   margin: 0 0 18px;
@@ -471,23 +472,81 @@
   display: flex;
 }
 
-/* Mobile responsive styles */
+/* Tablet/iPad responsive styles */
 @media (max-width: 1024px){
-  .home-hero-shell{ 
-    grid-template-columns: 1fr; 
-    gap: 28px; 
-    margin-top: 6vh;
+  .hero-root{ min-height: 88vh; padding: 24px 18px 48px; }
+  .hero-nav{ 
+    width: calc(100% - 24px);
+    padding: 10px 16px;
   }
-  .home-left{ text-align: center; }
-  .home-title{ font-size: clamp(2rem, 8vw, 3.5rem); }
-  .title-underline{ margin: 10px auto 0; }
-  .home-sub{ max-width: 500px; margin: 18px auto 0; }
-  .home-center{ order: -1; }
-  .home-right{ text-align: center; align-items: center; }
-  .icon-row{ justify-content: center; }
+  .nav-center{ gap: 20px; }
+  .nav-center a{ font-size: 0.95rem; padding: 5px 8px; }
+  .download-btn{ padding: 7px 12px; font-size: 0.95rem; }
+  
+  .home-hero-shell{ 
+    padding: 30px 16px 30px;
+    margin-top: -20px;
+  }
+  .hero-content-center{ 
+    max-width: 700px;
+    gap: 24px;
+  }
+  .avatar-wrap{ 
+    width: 160px; 
+    height: 160px; 
+  }
+  .avatar-wrap img{ 
+    width: 160px; 
+    height: 160px; 
+    min-width: 160px;
+    min-height: 160px;
+  }
+  .hero-main-title{ 
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem); 
+  }
+  .resume-link-new{ 
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+  .hero-footer{
+    max-width: 550px;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  .footer-left span{ font-size: 0.9rem; }
+  .copy-btn{ padding: 5px 10px; font-size: 0.8rem; }
+  .icon-btn{ width: 34px; height: 34px; }
+  .icon-btn .icon{ width: 17px; height: 17px; }
   .neuron-canvas{ display: none; }
+  .section{ width: min(1000px, 92%); margin: 60px auto 20px; }
+  .section h2{ font-size: clamp(1.5rem, 3.5vw, 2rem); }
 }
 
+/* iPad Pro landscape specific */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (orientation: landscape) {
+  .hero-main-title{ 
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+  }
+  .section{ width: min(1100px, 90%); }
+}
+
+/* iPad landscape specific */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) {
+  .hero-main-title{ 
+    font-size: clamp(2.3rem, 5.2vw, 3.6rem); 
+  }
+  .hero-footer{
+    flex-direction: row;
+  }
+}
+
+/* Mobile landscape and small tablets */
 @media (max-width: 768px){
   .hero-root{ min-height: 85vh; padding: 16px 16px 32px; }
   .hero-nav{ 
@@ -505,68 +564,63 @@
   
   .nav-spacer{ height: 80px; }
   .home-hero-shell{ 
-    margin-top: 3vh; 
-    gap: 24px; 
+    margin-top: 2vh; 
+    gap: 20px; 
     width: 100%;
-    padding: 0 8px;
+    padding: 20px 12px;
   }
-  .home-left{ text-align: center; }
-  .home-title{ 
-    font-size: clamp(2.2rem, 9vw, 3.2rem); 
-    margin: 8px 0;
-    line-height: 1.1;
-  }
-  .home-left .eyebrow{ 
-    font-size: clamp(1.4rem, 6vw, 2.2rem); 
-    margin-bottom: 4px;
-  }
-  .title-underline{ 
-    width: 160px; 
-    height: 5px; 
-    margin: 8px auto 0;
-  }
-  .home-sub{ 
-    font-size: 1rem; 
-    line-height: 1.6; 
-    max-width: 90%;
-    margin: 16px auto 0;
-    text-align: center;
-  }
-  .home-right{ 
-    text-align: center; 
-    align-items: center;
-    gap: 16px;
-  }
-  .right-text{ 
-    font-size: 1.1rem; 
-    font-weight: 600;
-    margin: 0;
-  }
-  .resume-link{ 
-    font-size: 1rem; 
-    font-weight: 700;
-    padding: 12px 20px;
-    border-radius: 8px;
-    background: rgba(113,97,255,0.1);
-    color: var(--purple-a);
-    transition: all 0.2s ease;
-  }
-  .resume-link:hover{ 
-    background: rgba(113,97,255,0.2);
-    transform: translateY(-2px);
-  }
-  .icon-row{ 
-    justify-content: center; 
-    gap: 16px;
-    margin-top: 8px;
+  .hero-content-center{ 
+    max-width: 600px;
+    gap: 20px;
   }
   .avatar-wrap{ 
-    width: min(280px, 65vw); 
-    margin: 0 auto;
+    width: 140px; 
+    height: 140px; 
   }
+  .avatar-wrap img{ 
+    width: 140px; 
+    height: 140px; 
+    min-width: 140px;
+    min-height: 140px;
+  }
+  .hero-main-title{ 
+    font-size: clamp(2rem, 6vw, 3rem); 
+    line-height: 1.15;
+  }
+  .resume-link-new{ 
+    padding: 11px 22px;
+    font-size: 0.9rem;
+  }
+  .resume-link-new svg{
+    width: 16px;
+    height: 16px;
+  }
+  .hero-footer{
+    max-width: 500px;
+    margin-top: 18px;
+    padding-top: 18px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .footer-left{ 
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .footer-left span{ font-size: 0.85rem; }
+  .copy-btn{ padding: 5px 10px; font-size: 0.75rem; }
+  .icon-row{ 
+    justify-content: center; 
+    gap: 10px;
+  }
+  .icon-btn{ width: 32px; height: 32px; }
+  .icon-btn .icon{ width: 16px; height: 16px; }
   .scroll-down{ bottom: 24px; }
+  .section{ width: min(94%, 700px); margin: 52px auto 18px; padding: 12px 20px 0; }
+  .section h2{ font-size: clamp(1.4rem, 4vw, 1.9rem); margin-bottom: 24px; margin-top: 6px; }
 }
 
+/* Mobile portrait */
 @media (max-width: 640px){
   .hero-root{ min-height: 90vh; padding: 12px 12px 28px; }
   .hero-nav{ 
@@ -575,98 +629,117 @@
     width: calc(100% - 16px);
     padding: 10px 14px;
   }
+  .nav-spacer{ height: 75px; }
   .home-hero-shell{ 
-    margin-top: 2vh; 
-    gap: 20px; 
-    padding: 0 4px;
+    margin-top: 1vh; 
+    gap: 18px; 
+    padding: 16px 8px;
   }
-  .home-title{ 
-    font-size: clamp(1.9rem, 11vw, 2.6rem); 
-    line-height: 1.1;
-    margin: 6px 0;
+  .hero-content-center{ 
+    max-width: 500px;
+    gap: 18px;
   }
-  .home-left .eyebrow{ 
-    font-size: clamp(1.2rem, 7vw, 1.8rem); 
-    margin-bottom: 3px;
-  }
-  .title-underline{ 
-    width: 140px; 
-    height: 4px; 
-    margin: 6px auto 0;
-  }
-  .home-sub{ 
-    font-size: 0.95rem; 
-    line-height: 1.5; 
-    max-width: 95%;
-    margin: 14px auto 0;
-  }
-  .home-right{ gap: 14px; }
-  .right-text{ font-size: 1rem; }
-  .resume-link{ 
-    font-size: 0.95rem; 
-    padding: 10px 18px;
-  }
-  .icon-row{ gap: 14px; }
   .avatar-wrap{ 
-    width: min(240px, 72vw); 
+    width: 120px; 
+    height: 120px; 
   }
-  .icon-btn{ width: 32px; height: 32px; }
-  .icon-btn .icon{ width: 16px; height: 16px; }
-  .scroll-text{ font-size: 0.75rem; }
-  .scroll-icon{ width: 20px; height: 20px; }
+  .avatar-wrap img{ 
+    width: 120px; 
+    height: 120px; 
+    min-width: 120px;
+    min-height: 120px;
+  }
+  .hero-main-title{ 
+    font-size: clamp(1.8rem, 7vw, 2.6rem); 
+    line-height: 1.2;
+  }
+  .resume-link-new{ 
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+  .resume-link-new svg{
+    width: 15px;
+    height: 15px;
+  }
+  .hero-footer{
+    max-width: 450px;
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+  .footer-left span{ font-size: 0.8rem; }
+  .copy-btn{ padding: 4px 9px; font-size: 0.7rem; }
+  .icon-row{ gap: 8px; }
+  .icon-btn{ width: 30px; height: 30px; }
+  .icon-btn .icon{ width: 15px; height: 15px; }
+  .scroll-icon{ width: 28px; height: 28px; }
   .scroll-down{ bottom: 20px; }
+  .section{ width: min(96%, 600px); margin: 44px auto 16px; padding: 8px 18px 0; }
+  .section h2{ font-size: clamp(1.3rem, 4.5vw, 1.8rem); margin-bottom: 22px; margin-top: 6px; }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px){
   .hero-root{ min-height: 95vh; padding: 8px 8px 24px; }
   .hero-nav{ 
     padding: 8px 12px;
     width: calc(100% - 12px);
     top: 6px;
+    border-radius: 18px;
   }
+  .avatar{ width: 28px; height: 28px; font-size: 0.9rem; }
   .nav-spacer{ height: 70px; }
   .home-hero-shell{ 
-    width: 98%; 
-    margin-top: 1vh; 
-    gap: 18px; 
-    padding: 0 2px;
+    width: 100%; 
+    margin-top: 0.5vh; 
+    gap: 16px; 
+    padding: 12px 6px;
   }
-  .home-title{ 
-    font-size: clamp(1.7rem, 12vw, 2.3rem); 
-    line-height: 1.1;
-    margin: 5px 0;
+  .hero-content-center{ 
+    max-width: 450px;
+    gap: 16px;
   }
-  .home-left .eyebrow{ 
-    font-size: clamp(1.1rem, 8vw, 1.5rem); 
-    margin-bottom: 2px;
-  }
-  .home-sub{ 
-    font-size: 0.9rem; 
-    line-height: 1.4; 
-    max-width: 98%;
-    margin: 12px auto 0;
-  }
-  .title-underline{ 
-    width: 120px; 
-    height: 3px; 
-    margin: 5px auto 0;
-  }
-  .home-right{ gap: 12px; }
-  .right-text{ font-size: 0.95rem; }
-  .resume-link{ 
-    font-size: 0.9rem; 
-    padding: 9px 16px;
-  }
-  .icon-row{ gap: 12px; }
   .avatar-wrap{ 
-    width: min(200px, 78vw); 
+    width: 100px; 
+    height: 100px; 
   }
+  .avatar-wrap img{ 
+    width: 100px; 
+    height: 100px; 
+    min-width: 100px;
+    min-height: 100px;
+    border: 2px solid rgba(0,0,0,.08);
+  }
+  .hero-main-title{ 
+    font-size: clamp(1.6rem, 8vw, 2.3rem); 
+    line-height: 1.25;
+  }
+  .resume-link-new{ 
+    padding: 9px 18px;
+    font-size: 0.8rem;
+  }
+  .resume-link-new svg{
+    width: 14px;
+    height: 14px;
+  }
+  .hero-footer{
+    max-width: 400px;
+    margin-top: 14px;
+    padding-top: 14px;
+    gap: 14px;
+  }
+  .footer-left span{ font-size: 0.75rem; }
+  .copy-btn{ padding: 4px 8px; font-size: 0.65rem; }
+  .icon-row{ gap: 7px; }
+  .icon-btn{ width: 28px; height: 28px; }
+  .icon-btn .icon{ width: 14px; height: 14px; }
+  .scroll-icon{ width: 26px; height: 26px; }
   .scroll-down{ bottom: 16px; }
-  .section{ width: 96%; margin: 48px auto 20px; }
-  .section h2{ font-size: clamp(1.4rem, 5vw, 1.8rem); }
+  .section{ width: 100%; margin: 40px auto 16px; padding: 8px 16px 0; }
+  .section h2{ font-size: clamp(1.2rem, 5vw, 1.7rem); margin-bottom: 20px; margin-top: 6px; }
   .mobile-nav{ 
     padding: 30px 25px; 
     min-width: 260px; 
+    max-width: 90vw;
     border-radius: 16px;
   }
   .mobile-nav-list{ gap: 16px; }

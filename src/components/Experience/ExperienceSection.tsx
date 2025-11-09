@@ -48,15 +48,6 @@ const roles: Role[] = [
       'Analyzed and visualized data; developed problem-solving skills and delivered insights to support business decisions.',
     icon: 'bolt',
   },
-  {
-    title: 'Data Analyst Intern',
-    company: 'Plusinfosys',
-    location: 'Ahmedabad',
-    dates: 'June 2024 – Oct 2024',
-    summary:
-      'Identified leads, qualified prospects, and scheduled meetings between qualified prospects and team leadership.',
-    icon: 'brain',
-  },
 ]
 
 export default function ExperienceSection() {
