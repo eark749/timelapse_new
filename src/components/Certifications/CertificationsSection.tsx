@@ -26,13 +26,13 @@ const featured: Cert[] = [
   },
   { 
     title: 'Azure AI Fundamentals', 
-    issuer: 'neo4j', 
+    issuer: 'Udemy', 
     year: 'November 2025',
     proofUrl: 'https://www.udemy.com/certificate/UC-c1f0eb7a-25f4-49db-812e-75293f2e939d/'
   },
   { 
     title: 'Neo4j Certified Professional', 
-    issuer: 'Udemy', 
+    issuer: 'neo4j', 
     year: 'November 2025',
     proofUrl: 'https://graphacademy.neo4j.com/c/757eeadf-22c7-473d-ac26-f21797a40206/'
   },
