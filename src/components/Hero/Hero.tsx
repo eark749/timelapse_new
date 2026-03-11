@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import VariableProximity from '../VariableProximity'
 import './hero.css'
 import heroAvatar from '../../../avvatar.png'
  
@@ -6,6 +7,7 @@ import heroAvatar from '../../../avvatar.png'
 export default function Hero() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -106,13 +108,23 @@ export default function Hero() {
       {/* Spacer to prevent content from sitting beneath the fixed nav */}
       <div className="nav-spacer" aria-hidden="true" />
 
-      <div className="home-hero-shell">
+      <div className="home-hero-shell" ref={containerRef}>
         <div className="hero-content-center">
           <div className="avatar-wrap" aria-hidden="false">
             <img src={heroAvatar} alt="Vansh avatar" />
           </div>
           
-          <h1 className="hero-main-title">Building intelligent AI<br/>solutions, scalable systems,<br/>and innovative experiences.</h1>
+          <h1 className="hero-main-title" style={{ width: '100%', cursor: 'default' }}>
+            <VariableProximity
+              label="Building intelligent AI solutions, scalable systems, and innovative experiences."
+              className="variable-proximity-demo"
+              fromFontVariationSettings="'wght' 400"
+              toFontVariationSettings="'wght' 900"
+              containerRef={containerRef}
+              radius={150}
+              falloff="linear"
+            />
+          </h1>
           
           <div className="hero-actions">
             <a className="resume-link-new" href="/vansh_soni.pdf" target="_blank" rel="noreferrer">
