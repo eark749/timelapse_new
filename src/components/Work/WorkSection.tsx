@@ -1,6 +1,7 @@
 import React from 'react'
 import './work.css'
 import ScrollAnimation from '../ScrollAnimation/ScrollAnimation'
+import ScrollStack, { ScrollStackItem } from './ScrollStack'
 
 type Project = {
   title: string
@@ -61,48 +62,59 @@ export default function WorkSection() {
         <h2>Work</h2>
       </ScrollAnimation>
 
-      <div className="work-grid">
+      <ScrollStack 
+        className="work-grid" 
+        useWindowScroll={true} 
+        itemDistance={24} 
+        itemStackDistance={30} 
+        baseScale={0.85} 
+        itemScale={0.03} 
+        stackPosition="10%" 
+        scaleEndPosition="5%"
+      >
         {projects.map((p, idx) => (
-          <ScrollAnimation key={idx} delay={idx * 100}>
-            <article
-              className={`work-card theme-${p.theme} is-sticky`}
-              aria-label={p.title}
-              style={{ zIndex: projects.length - idx }}
-            >
-              {p.link && (
-                <a 
-                  href={p.link} 
-                  className="project-link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label={`View ${p.title} project`}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
-                  </svg>
-                </a>
-              )}
-              <div className="work-media" aria-hidden={!p.poster}>
-                {p.poster && (
-                  <img
-                    className="work-image"
-                    src={p.poster}
-                    alt={`${p.title} project thumbnail`}
-                    loading="lazy"
-                  />
+          <ScrollStackItem key={idx}>
+            <ScrollAnimation delay={idx * 100}>
+              <article
+                className={`work-card theme-${p.theme}`}
+                aria-label={p.title}
+                style={{ zIndex: idx + 1 }}
+              >
+                {p.link && (
+                  <a 
+                    href={p.link} 
+                    className="project-link" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label={`View ${p.title} project`}
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                    </svg>
+                  </a>
                 )}
-              </div>
-              <div className="work-meta">
-                <h3>{p.title}</h3>
-                <p className="work-description-short">{p.description}</p>
-                {p.detailedDescription && (
-                  <p className="work-description-detailed">{p.detailedDescription}</p>
-                )}
-              </div>
-            </article>
-          </ScrollAnimation>
+                <div className="work-media" aria-hidden={!p.poster}>
+                  {p.poster && (
+                    <img
+                      className="work-image"
+                      src={p.poster}
+                      alt={`${p.title} project thumbnail`}
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+                <div className="work-meta">
+                  <h3>{p.title}</h3>
+                  <p className="work-description-short">{p.description}</p>
+                  {p.detailedDescription && (
+                    <p className="work-description-detailed">{p.detailedDescription}</p>
+                  )}
+                </div>
+              </article>
+            </ScrollAnimation>
+          </ScrollStackItem>
         ))}
-      </div>
+      </ScrollStack>
     </section>
   )
 }

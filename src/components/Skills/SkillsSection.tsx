@@ -29,82 +29,61 @@ const skills: Skill[] = [
   { name: 'Cisco Packet Tracer', size: 'wide', level: 62 },
 ]
 
+const iconMap: Record<string, string> = {
+  'PYTHON': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+  'AWS': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+  'TENSORFLOW': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg',
+  'DOCKER': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
+  'POSTGRESQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+  'HUGGING FACE': 'https://cdn.simpleicons.org/huggingface/FFD21E',
+  'KERAS': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg',
+  'SCIKIT-LEARN': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg',
+  'LANGCHAIN': 'https://cdn.simpleicons.org/langchain/1C3C3C',
+  'LLAMAINDEX': 'https://cdn.simpleicons.org/llamaindex/000000',
+  'LANGGRAPH': 'https://cdn.simpleicons.org/langchain/2B2B2B',
+  'POSTMAN': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg',
+  'GIT': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
+  'APOLLO': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg',
+  'PYCHARM': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg',
+  'N8N': 'https://cdn.simpleicons.org/n8n/EA3D4B',
+  'WIRESHARK': 'https://cdn.simpleicons.org/wireshark/1679A7',
+  'AZURE': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg',
+  'RUST': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg',
+  'CISCO PACKET TRACER': 'https://cdn.simpleicons.org/cisco/049FD9',
+}
+
 function SkillIcon({ name }: { name: string }) {
+  const [error, setError] = React.useState(false)
   const id = name.toUpperCase()
-  switch (id) {
-    case 'PYTHON':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 12a5 5 0 015-5h3a2 2 0 012 2v2H9a2 2 0 00-2 2v1H7v-2z" fill="currentColor" />
-          <path d="M17 12a5 5 0 01-5 5H9a2 2 0 01-2-2v-2h8a2 2 0 002-2v-1h1v2z" fill="currentColor" opacity=".8" />
-        </svg>
-      )
-    case 'AWS':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 13c0-3.3 3-6 7-6s7 2.7 7 6" fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M4 16c2 2 5 3 8 3s6-1 8-3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      )
-    case 'TENSORFLOW':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 9l8-4 8 4-3 1.5V18l-3-1.5V11l-2-1-2 1v5.5L7 18v-7.5L4 9z" fill="currentColor" />
-        </svg>
-      )
-    case 'DOCKER':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="12" width="3" height="3" fill="currentColor" />
-          <rect x="7" y="12" width="3" height="3" fill="currentColor" />
-          <rect x="11" y="12" width="3" height="3" fill="currentColor" />
-          <rect x="7" y="8" width="3" height="3" fill="currentColor" />
-          <rect x="11" y="8" width="3" height="3" fill="currentColor" />
-          <path d="M3 16c0 2.5 2 4 5.5 4H16c3 0 5-1.5 5-4h-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      )
-    case 'POSTGRESQL':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <ellipse cx="12" cy="8" rx="7" ry="4" fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M5 8v6c0 2.2 3.1 4 7 4s7-1.8 7-4V8" fill="none" stroke="currentColor" strokeWidth="2" />
-        </svg>
-      )
-    case 'HUGGING FACE':
-    case 'HUGGING FACE'.toUpperCase():
-    case 'HUGGINGFACE':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
-          <circle cx="9" cy="10" r="1" fill="currentColor" />
-          <circle cx="15" cy="10" r="1" fill="currentColor" />
-          <path d="M8 14c1.2 1 2.4 1.5 4 1.5s2.8-.5 4-1.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      )
-    case 'GIT':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M8 14a2 2 0 1 0 2-2v-4a2 2 0 1 1 2 2v4a2 2 0 1 0 2 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      )
-    case 'RUST':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <circle cx="12" cy="12" r="2" fill="currentColor" />
-        </svg>
-      )
-    case 'AZURE':
-      return (
-        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 4L4 14h6l-2 6 8-10h-6l2-6z" fill="currentColor" />
-        </svg>
-      )
-    default:
-      return null
+  const url = iconMap[id]
+  
+  const getHashColor = () => {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+        hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return `hsl(${Math.abs(hash) % 360}, 65%, 45%)`;
   }
+
+  if (url && !error) {
+    return <img src={url} alt={`${name} icon`} className="icon" onError={() => setError(true)} draggable="false" />
+  }
+
+  const baseProps = {
+    className: "icon",
+    viewBox: "0 0 24 24",
+    "aria-hidden": true,
+    style: { color: getHashColor() }
+  };
+
+  return (
+    <svg {...baseProps}>
+      <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" strokeWidth="2" />
+      <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="currentColor" fontSize="11" fontWeight="bold">
+        {name.charAt(0).toUpperCase()}
+      </text>
+    </svg>
+  )
 }
 
 export default function SkillsSection() {
@@ -127,10 +106,6 @@ export default function SkillsSection() {
               <div className="content">
                 <SkillIcon name={s.name} />
                 <span className="label">{s.name}</span>
-              </div>
-              <div className="progress" aria-hidden="true">
-                <div className="bar" />
-                <span className="pct">{s.level}%</span>
               </div>
             </div>
           ))}

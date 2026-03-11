@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import VariableProximity from '../VariableProximity'
+import { GlassButton } from '../GlassButton/GlassButton'
 import './hero.css'
 import heroAvatar from '../../../avvatar.png'
  
@@ -127,12 +128,14 @@ export default function Hero() {
           </h1>
           
           <div className="hero-actions">
-            <a className="resume-link-new" href="/vansh_soni.pdf" target="_blank" rel="noreferrer">
-              View Resume
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M7 17L17 7M17 7H7M17 7v10"/>
-              </svg>
-            </a>
+            <GlassButton onClick={() => window.open("/vansh_soni.pdf", "_blank")}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                View Resume
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+              </div>
+            </GlassButton>
           </div>
           
           <div className="hero-footer">
