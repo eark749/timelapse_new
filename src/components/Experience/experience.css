@@ -1,43 +1,75 @@
+
 .exp-root{ padding-bottom: 24px; }
 
-.exp-timeline{
-  position: relative;
-  display: grid;
-  gap: 16px;
-}
-.exp-timeline::before{
-  content: "";
-  position: absolute; left: 20px; top: 0; bottom: 0;
-  width: 2px; border-radius: 2px;
-  background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.04));
+/* Glass list style */
+.exp-list{ list-style: none; margin: 0; padding: 0 4px; display: grid; gap: 12px; }
+.glass-item{ position: relative; padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,.35); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.55); outline: 1px solid rgba(0,0,0,.08); box-shadow: 0 10px 24px rgba(0,0,0,.12); transition: transform .2s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease; }
+.glass-item:hover{ transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,.16); background: rgba(255,255,255,.5); border-color: rgba(0,0,0,.12); }
+.glass-head{ display: grid; grid-template-columns: 36px 1fr; align-items: center; gap: 10px; }
+.glass-icon{ width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #6d5cff; background: #ffffff; border: 1px solid rgba(0,0,0,.08); }
+.xp-icon{ width: 18px; height: 18px; }
+.glass-title .xp-title{ font-weight: 800; color: #1c1c1e; }
+.glass-title .xp-meta{ color: rgba(0,0,0,.6); font-size: .95rem; }
+.glass-title .xp-dates{ color: rgba(0,0,0,.65); font-size: .9rem; }
+.xp-summary{ margin: 8px 0 0; color: rgba(0,0,0,.78); max-height: 0; overflow: hidden; opacity: 0; transition: max-height .25s ease, opacity .25s ease; padding-left: 46px; }
+.glass-item:hover .xp-summary{ max-height: 200px; opacity: 1; }
+
+/* Tablet/iPad */
+@media (max-width: 1024px){
+  .exp-list{ gap: 11px; }
+  .glass-item{ padding: 11px 13px; border-radius: 15px; }
+  .glass-head{ grid-template-columns: 34px 1fr; gap: 9px; }
+  .glass-icon{ width: 28px; height: 28px; }
+  .xp-icon{ width: 17px; height: 17px; }
+  .glass-title .xp-title{ font-size: 0.98rem; }
+  .glass-title .xp-meta{ font-size: 0.93rem; }
+  .glass-title .xp-dates{ font-size: 0.88rem; }
+  .xp-summary{ padding-left: 43px; font-size: 0.93rem; }
 }
 
-.exp-card{
-  position: relative;
-  margin-left: 44px;
-  padding: 14px 16px 14px 18px;
-  border-radius: 16px;
-  background: rgba(255,255,255,.9);
-  border: 1px solid rgba(0,0,0,.06);
-  outline: 1px solid rgba(255,255,255,.7);
-  box-shadow: 0 10px 28px rgba(0,0,0,.12);
-  transform: translateY(18px) scale(.98);
-  opacity: 0;
-  filter: blur(8px);
-  transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s ease, filter .5s ease;
-}
-.exp-card.show{ transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
-
-.exp-card .dot{
-  position: absolute; left: -28px; top: 16px;
-  width: 14px; height: 14px; border-radius: 50%;
-  background: linear-gradient(135deg, #7161ff, #ada0ff);
-  box-shadow: 0 6px 14px rgba(113,97,255,.4);
+@media (max-width: 860px){
+  .xp-step.top{ padding-right: 24px; }
+  .xp-step.bottom{ padding-left: 24px; }
 }
 
-.exp-header h3{ margin: 0 0 4px; font-size: 1.05rem; letter-spacing: .02em; color: #1c1c1e; }
-.exp-header .meta{ color: rgba(0,0,0,.55); font-size: .95rem; }
-.exp-summary{ margin: 8px 0 0; color: rgba(0,0,0,.75); line-height: 1.5; }
+@media (max-width: 768px){
+  .exp-root{ padding-bottom: 20px; }
+  .exp-list{ padding: 0 8px; gap: 11px; }
+  .glass-item{ padding: 10px 12px; border-radius: 14px; }
+  .glass-head{ grid-template-columns: 32px 1fr; gap: 8px; }
+  .glass-icon{ width: 26px; height: 26px; }
+  .xp-icon{ width: 16px; height: 16px; }
+  .glass-title .xp-title{ font-size: 0.95rem; }
+  .glass-title .xp-meta{ font-size: 0.9rem; }
+  .glass-title .xp-dates{ font-size: 0.85rem; }
+  .xp-summary{ padding-left: 40px; font-size: 0.95rem; }
+}
+
+@media (max-width: 640px){
+  .exp-root{ padding-bottom: 18px; }
+  .exp-list{ padding: 0 10px; gap: 10px; }
+  .glass-item{ padding: 9px 10px; border-radius: 12px; }
+  .glass-head{ grid-template-columns: 30px 1fr; gap: 7px; }
+  .glass-icon{ width: 24px; height: 24px; }
+  .xp-icon{ width: 14px; height: 14px; }
+  .glass-title .xp-title{ font-size: 0.9rem; }
+  .glass-title .xp-meta{ font-size: 0.85rem; }
+  .glass-title .xp-dates{ font-size: 0.8rem; }
+  .xp-summary{ padding-left: 37px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px){
+  .exp-root{ padding-bottom: 16px; }
+  .exp-list{ padding: 0 12px; gap: 10px; }
+  .glass-item{ padding: 8px 9px; }
+  .glass-head{ grid-template-columns: 28px 1fr; gap: 6px; }
+  .glass-icon{ width: 22px; height: 22px; }
+  .xp-icon{ width: 13px; height: 13px; }
+  .glass-title .xp-title{ font-size: 0.85rem; }
+  .glass-title .xp-meta{ font-size: 0.8rem; }
+  .glass-title .xp-dates{ font-size: 0.75rem; }
+  .xp-summary{ padding-left: 34px; font-size: 0.85rem; }
+}
 
 
 

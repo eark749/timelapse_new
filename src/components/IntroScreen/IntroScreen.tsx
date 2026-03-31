@@ -136,10 +136,7 @@ export default function IntroScreen({ onExplore }: Props) {
         <p className="intro-tagline">CURRENTLY BUILDING FUTURE WITH AI</p>
         <button className="intro-explore" onClick={handleExplore}>EXPLORE</button>
       </div>
-      <div className="intro-controls">
-        <button aria-label="Back" className="bubble">◁</button>
-        <button aria-label="Close" className="bubble">×</button>
-      </div>
+
     </div>
   )
 }

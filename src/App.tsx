@@ -6,7 +6,6 @@ import SkillsSection from './components/Skills/SkillsSection'
 import CertificationsSection from './components/Certifications/CertificationsSection'
 import ExperienceSection from './components/Experience/ExperienceSection'
 import ContactSection from './components/Contact/ContactSection'
-import CertificationsPage from './pages/CertificationsPage'
  
 
 export default function App() {
@@ -22,7 +21,7 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
 
-  const isCertsPage = route.startsWith('#/certifications')
+  const isCertsPage = false
 
   return (
     <div className="app-root">
@@ -36,7 +35,7 @@ export default function App() {
       )}
       <main className={"site-content" + (revealHero ? " show" : "" )} style={{ padding: 0 }}>
         {isCertsPage ? (
-          <CertificationsPage />
+          <></>
         ) : (
           <>
             <Hero />

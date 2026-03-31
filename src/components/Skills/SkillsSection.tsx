@@ -1,5 +1,6 @@
 import React from 'react'
 import './skills.css'
+import ScrollAnimation from '../ScrollAnimation/ScrollAnimation'
 
 type SkillSize = 'sm' | 'lg' | 'wide' | 'tall'
 type Skill = { name: string; size: SkillSize; level: number }
@@ -8,7 +9,7 @@ const skills: Skill[] = [
   { name: 'AWS', size: 'lg', level: 75 },
   { name: 'TensorFlow', size: 'lg', level: 78 },
   { name: 'Docker', size: 'lg', level: 72 },
-  { name: 'PostgreSQL', size: 'tall', level: 68 },
+  { name: 'PostgreSQL', size: 'lg', level: 68 },
   { name: 'Hugging Face', size: 'wide', level: 82 },
   { name: 'Keras', size: 'sm', level: 76 },
   { name: 'Scikit-learn', size: 'sm', level: 80 },
@@ -22,7 +23,9 @@ const skills: Skill[] = [
   { name: 'Weka', size: 'sm', level: 55 },
   { name: 'PyCharm', size: 'sm', level: 86 },
   { name: 'n8n', size: 'sm', level: 64 },
-  { name: 'Wireshark', size: 'tall', level: 56 },
+  { name: 'Wireshark', size: 'lg', level: 56 },
+  { name: 'Azure', size: 'lg', level: 70 },
+  { name: 'Rust', size: 'sm', level: 20 },
   { name: 'Cisco Packet Tracer', size: 'wide', level: 62 },
 ]
 
@@ -85,6 +88,20 @@ function SkillIcon({ name }: { name: string }) {
           <path d="M8 14a2 2 0 1 0 2-2v-4a2 2 0 1 1 2 2v4a2 2 0 1 0 2 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
       )
+    case 'RUST':
+      return (
+        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="2" />
+          <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="12" cy="12" r="2" fill="currentColor" />
+        </svg>
+      )
+    case 'AZURE':
+      return (
+        <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 4L4 14h6l-2 6 8-10h-6l2-6z" fill="currentColor" />
+        </svg>
+      )
     default:
       return null
   }
@@ -93,28 +110,32 @@ function SkillIcon({ name }: { name: string }) {
 export default function SkillsSection() {
   return (
     <section id="skills" className="section skills-root" aria-label="Skills">
-      <h2>Skills</h2>
+      <ScrollAnimation>
+        <h2>Skills</h2>
+      </ScrollAnimation>
 
-      <div className="skills-board">
-        {skills.map((s) => (
-          <div
-            key={s.name}
-            className={`skill is-${s.size}`}
-            aria-label={s.name}
-            title={s.name}
-            style={{ ['--level' as any]: `${s.level}%` }}
-          >
-            <div className="content">
-              <SkillIcon name={s.name} />
-              <span className="label">{s.name}</span>
+      <ScrollAnimation className="scale-up">
+        <div className="skills-board">
+          {skills.map((s) => (
+            <div
+              key={s.name}
+              className={`skill is-${s.size}`}
+              aria-label={s.name}
+              title={s.name}
+              style={{ ['--level' as any]: `${s.level}%` }}
+            >
+              <div className="content">
+                <SkillIcon name={s.name} />
+                <span className="label">{s.name}</span>
+              </div>
+              <div className="progress" aria-hidden="true">
+                <div className="bar" />
+                <span className="pct">{s.level}%</span>
+              </div>
             </div>
-            <div className="progress" aria-hidden="true">
-              <div className="bar" />
-              <span className="pct">{s.level}%</span>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </ScrollAnimation>
     </section>
   )
 }
